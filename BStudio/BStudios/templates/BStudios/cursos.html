@@ -1,0 +1,13 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+    <ul>
+        {% for cacursos in cacursos %}
+            <li><a href="">{{ cacursos }}</a></li>
+        {% empty %}
+            <li>Não há cursos adicionados.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content%}
