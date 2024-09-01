@@ -1,0 +1,13 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+    <ul>
+        {% for caservicos in caservicos %}
+            <li><a href="">{{ caservicos }}</a></li>
+        {% empty %}
+            <li>Não há serviços adicionados no momento.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content%}

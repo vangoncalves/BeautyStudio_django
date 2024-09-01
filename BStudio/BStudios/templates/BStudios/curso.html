@@ -1,0 +1,23 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+    <h3>Curso: {{ curso }}</h3>
+
+    <p>Cursos:</p>
+    <ul>
+        {% for curso in cursos %}
+        <li>
+            <p>{{ curso.nome}}</p>
+            <p>{{ curso.descricao | linebreaks}}</p>
+        </li>
+
+        {% empty %}
+        <li>
+            Não há curso.
+        </li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
