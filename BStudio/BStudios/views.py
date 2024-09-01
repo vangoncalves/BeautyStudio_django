@@ -8,15 +8,14 @@ def index(request):
 def cursos(request):
     """Mostra todos as categorias do curso"""
     cacursos = CaCursos.objects.order_by('nome')
-    context = {'cursos': cursos}
+    context = {'cacursos': cacursos}
     return render(request, 'BStudios/cursos.html', context)
 
-def curso(request, curso_id):
+def curso(request, idCaCursos):
     """Mostra um unico curso e todas as suas entradas"""
-
-    curso = CaCursos.objects.get(id = curso_id)
+    curso = CaCursos.objects.get(idCaCursos = idCaCursos)
     cursos = curso.curso_set.order_by('-nome')
-    context ={'curso': cacurso, 'cursos':curso}
+    context ={'curso': curso, 'cursos':cursos}
     return render(request, 'BStudios/curso.html', context)
 
 def servicos(request):
@@ -25,10 +24,9 @@ def servicos(request):
     context = {'caservicos': caservicos}
     return render(request, 'BStudios/servicos.html', context)
 
-def servico(request, servico_id):
+def servico(request, idCaServicos):
     """Mostra um unico servico e todas as suas entradas"""
-
-    servico = servico.objects.get(id = servico_id)
+    servico = CaServicos.objects.get(idCaServicos = idCaServicos)
     servicos = servico.servico_set.order_by('-nome')
-    context ={'servico': servico, 'servicos':servico}
+    context ={'servico': servico, 'servicos':servicos}
     return render(request, 'BStudios/servico.html', context)
