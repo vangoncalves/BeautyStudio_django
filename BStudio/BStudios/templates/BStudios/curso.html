@@ -8,7 +8,7 @@
     <ul>
         {% for curso in cursos %}
         <li>
-            <p>{{ curso.nome}}</p>
+            <p><a href="{% url 'detalhes' curso.idCurso %}">{{ curso.nome}}</a></p>
             <p>{{ curso.descricao | linebreaks}}</p>
         </li>
 
@@ -19,5 +19,5 @@
 
         {% endfor %}
     </ul>
-
+    <a href="{% url 'agendamentos' %}">Agendar</a>
 {% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+    <h3>{{ detalhe.nome }}</h3>
+    <ul>
+        <li>
+            <p>{{ detalhe.descricao }}</p>
+            <p>Início: {{ detalhe.dataInicio }}</p>
+            <p>Fim: {{ detalhe.dataFim }}</p>
+            <p>Valor: {{ detalhe.valor_cur }}</p>
+            <p>Profissionais: {{ detalhe.fk_idFuncionario }}</p>
+        </li>
+    </ul>
+    <a href="{% url 'agendamentos' %}">Agendar</a>
+{% endblock content %}
