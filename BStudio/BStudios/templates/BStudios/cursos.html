@@ -3,8 +3,10 @@
 {% block content %}
 
     <ul>
-        {% for cacursos in cacursos %}
-            <li><a href="">{{ cacursos }}</a></li>
+        {% for cacurso in cacursos %}
+            <li>
+                <a href="{% url 'curso' cacurso.idCaCursos %}">{{ cacurso }}</a>
+            </li>
         {% empty %}
             <li>Não há cursos adicionados.</li>
         {% endfor %}

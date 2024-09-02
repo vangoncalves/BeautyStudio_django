@@ -26,7 +26,7 @@ def servicos(request):
 
 def servico(request, idCaServicos):
     """Mostra um unico servico e todas as suas entradas"""
-    servico = CaServicos.objects.get(idCaServicos = idCaServicos)
+    servico = CaServicos.objects.get(id = idCaServicos)
     servicos = servico.servico_set.order_by('-nome')
     context ={'servico': servico, 'servicos':servicos}
     return render(request, 'BStudios/servico.html', context)

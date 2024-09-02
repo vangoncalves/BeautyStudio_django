@@ -3,8 +3,8 @@
 {% block content %}
 
     <ul>
-        {% for caservicos in caservicos %}
-            <li><a href="">{{ caservicos }}</a></li>
+        {% for caservico in caservicos %}
+            <li><a href="{% url 'servico' caservico.idCaServicos%}">{{ caservico }}</a></li>
         {% empty %}
             <li>Não há serviços adicionados no momento.</li>
         {% endfor %}
