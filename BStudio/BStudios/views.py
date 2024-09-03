@@ -31,21 +31,6 @@ def detalhes(request, idCurso):
 
 
 
-def servicos(request):
-    """Mostra todos as categorias de serviços"""
-    caservicos = CaServicos.objects.order_by('nome')
-    context = {'caservicos': caservicos}
-    return render(request, 'BStudios/servicos.html', context)
-
-def servico(request, idCaServicos):
-    """Mostra um unico servico e todas as suas entradas"""
-    servico = CaServicos.objects.get(id = idCaServicos)
-    servicos = servico.servico_set.order_by('-nome')
-    context ={'servico': servico, 'servicos':servicos}
-    return render(request, 'BStudios/servico.html', context)
-
-
-
 def agendamentos(request):
     """Agenda um curso"""
     if request.method != 'POST':

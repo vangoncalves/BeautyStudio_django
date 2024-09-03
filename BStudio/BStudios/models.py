@@ -17,13 +17,6 @@ class CaCursos(models.Model):
     def __str__(self):
         return self.nome
 
-class CaServicos(models.Model):
-    idCaServicos = models.BigAutoField(primary_key=True)
-    nome = models.CharField(max_length=200, null=False)
-
-    def __str__(self):
-        return self.nome  
-
 class Funcionario(models.Model):
     idFuncionario = models.BigAutoField(primary_key=True)
     nome = models.CharField(max_length=100, null=False)
@@ -47,16 +40,6 @@ class Curso(models.Model):
     def __str__(self):
         return self.nome + " - " + self.descricao
 
-class Servico(models.Model):
-    idServico = models.BigAutoField(primary_key=True)
-    nome = models.CharField(max_length=100, null=False)
-    descricao = models.CharField(max_length=300, null=False)
-    valor_ser = models.CharField(max_length=100, null=False)
-    fk_idCaServicos = models.ForeignKey(CaServicos, on_delete=models.CASCADE)
-    fk_idFuncionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.nome + " - " + self.descricao
 
 class MetodoPagamento(models.Model):
     idMetodoPagamento = models.BigAutoField(primary_key=True)
@@ -73,7 +56,6 @@ class Agendamento(models.Model):
                                     help_text="Formato em HH-MM-SS")
     fk_idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fk_idCurso = models.ForeignKey(Curso, on_delete=models.CASCADE)
-    fk_idServico = models.ForeignKey(Servico, on_delete=models.CASCADE)
     fk_idMetodoPagamento = models.ForeignKey(MetodoPagamento, on_delete=models.CASCADE)
 
     def __str__(self):
