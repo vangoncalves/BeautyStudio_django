@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.whl
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+*.pot
+*.pyc
+.venv
+.env
+local_settings.py
+db.sqlite3
+media/
+
+# Outros arquivos e diretórios que você pode querer ignorar
+.vscode/
+.idea/
+*.sqlite3
+*.DS_Store
