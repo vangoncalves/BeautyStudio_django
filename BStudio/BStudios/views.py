@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-from .forms import UsuarioForm
+from .forms import CursoForm, CaCursosForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
@@ -11,10 +11,24 @@ def index(request):
 
 
 def cursos(request):
-    """Mostra todos as categorias do curso"""
+    """Mostra todas as categorias do curso"""
     cacursos = CaCursos.objects.order_by('nome')
     context = {'cacursos': cacursos}
     return render(request, 'BStudios/cursos.html', context)
+
+def cursosadd(request):
+    """Adiciona uma nova categoria de curso."""
+    if request.method != 'POST':
+        form = CaCursosForm()
+    else:
+        form = CaCursosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('cursos'))
+        
+    context = {'forms':form}
+    return render(request, 'BStudios/cursos_add.html', context)
+
 
 def curso(request, idCaCursos):
     """Mostra um unico curso e todas as suas entradas"""
@@ -23,6 +37,21 @@ def curso(request, idCaCursos):
     context ={'curso': curso, 'cursos':cursos}
     return render(request, 'BStudios/curso.html', context)
 
+"""Não está pronto"""
+def cursoadd(request):
+    """Adiciona um novo curso."""
+    if request.method != 'POST':
+        form = CursoForm()
+    else:
+        form = CursoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('curso'))
+        
+    context = {'forms':form}
+    return render(request, 'BStudios/curso_add.html', context)
+
+
 def detalhes(request, idCurso):
     """Mostra um unico curso e todas as suas entradas"""
     detalhe = Curso.objects.get(idCurso = idCurso)
@@ -30,7 +59,7 @@ def detalhes(request, idCurso):
     return render(request, 'BStudios/curso_detalhes.html', context)
 
 
-
+"""Não está pronto"""
 def agendamentos(request):
     """Agenda um curso"""
     if request.method != 'POST':

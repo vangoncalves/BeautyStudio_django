@@ -20,7 +20,7 @@ class CaCursos(models.Model):
 class Funcionario(models.Model):
     idFuncionario = models.BigAutoField(primary_key=True)
     nome = models.CharField(max_length=100, null=False)
-    email = models.CharField(max_length=200, null=False)
+    email = models.EmailField(max_length=200, null=False)
     telefone = models.CharField(max_length=11, null=False)
     cargo = models.CharField(max_length=100, null=False)
 
@@ -33,7 +33,10 @@ class Curso(models.Model):
     descricao = models.CharField(max_length=300, null=False)
     dataInicio = models.DateField(null=False)
     dataFim = models.DateField(null=False)
-    valor_cur = models.CharField(max_length=100,null=False)
+    hora_inicio = models.TimeField(null=True)
+    hora_final = models.TimeField(null=True)
+    dias = models.CharField(max_length=100,null=True)
+    valor_cur = models.FloatField(null=False)
     fk_idCaCursos = models.ForeignKey(CaCursos, on_delete=models.CASCADE)
     fk_idFuncionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
 
@@ -50,10 +53,7 @@ class MetodoPagamento(models.Model):
 
 class Agendamento(models.Model):
     idAgendamento = models.BigAutoField(primary_key=True)
-    data_hora = models.DateTimeField(null=False,
-                                    help_text="Formato em YYYY-MM-DD")
-    hora = models.TimeField(null=False,
-                                    help_text="Formato em HH-MM-SS")
+    fk_idCaCursos = models.ForeignKey(CaCursos, on_delete=models.CASCADE, null=True)
     fk_idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fk_idCurso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     fk_idMetodoPagamento = models.ForeignKey(MetodoPagamento, on_delete=models.CASCADE)

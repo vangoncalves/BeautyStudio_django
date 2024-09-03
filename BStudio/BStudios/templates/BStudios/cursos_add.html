@@ -1,0 +1,11 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+<form action="{% url 'cursosadd' %}" method="post">
+    {% csrf_token %}
+    {{ forms.as_p }}
+    <button name="submit">Agendar</button>
+</form>
+
+{% endblock content %}
