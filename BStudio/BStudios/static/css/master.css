@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Dekko&family=Gruppo&display=swap');
+*
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Oregano', 'Gruppo', 'Dekko', 'Chivo Mono', sans-serif;
+        }
+        ul
+        {
+            list-style: none;
+        }
+        a
+        {
+            text-decoration: none;
+            color: #FFF9FA;
+        }
+        h1
+        {
+            color: #2f0210;
+        }
+        h2
+        {
+            color: #441B28;
+        }
+        nav 
+        {
+            background-color: #2f0210;
+            width: 100%;
+            text-align: center;
+            padding: 10px 20px;
+            top: 30px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            height: 27%;
+             
+        }
+         .cabecalho
+         {
+             display: flex;
+             justify-content: space-between;
+             padding:10px 0 10px;
+             border-bottom: #FFF4E9 solid 1px;
+         }
+         .menu
+         {
+             display: flex;
+             align-items:center;
+         }
+         .menu li
+         {
+             padding: 10px;
+         }
+         .menu li a
+         {
+             padding: 10px;
+             text-align: center;
+             transition: background .3s;
+             margin-top: 8px;
+         }
+         .menu li a:hover
+         {
+             background-color: #441B28;
+             color: #FFF4E9;
+         }
+         .submenu
+         {
+             display: flex;
+             justify-content: space-between;
+             padding: 15px;
+             height: 20%;
+         }
+         /*submenu + dropdown*/
+         .submenu ul
+         {
+             gap: 20px;
+             padding: 10px;
+             background-color: #2f0210;
+         }
+         .submenu ul li
+         {
+             display: inline;
+             position: relative;
+         }
+         .submenu ul li a
+         {
+             display: inline-block;
+             padding: 10px;
+             transition: background .3s;
+         }
+         .submenu li a:hover
+         {
+             background-color: #441B28;
+             color: #FFF4E9;
+         }
+         .submenu ul ul
+         {
+             display: none;
+             position: absolute;
+             width: 150px;
+             left: 0;
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+         }
+         .submenu ul li:hover ul
+         {
+             display: block;
+         }
+         .submenu ul ul li a
+         {
+             display: block;
+         }
+        .rodape
+        {
+            gap: 10%;
+            justify-content: center;
+        }
+        footer 
+        {
+            background-color: #2f0210;
+            text-align: center;
+            padding-top: 40px;
+            color: #FFF9FA;
+            padding-bottom: 30px;
+            display:flex;
+        }
+        
