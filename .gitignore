@@ -19,7 +19,7 @@ venv.bak/
 .env
 local_settings.py
 db.sqlite3
-media/
+
 
 # Outros arquivos e diretórios que você pode querer ignorar
 .vscode/
