@@ -4,12 +4,12 @@ from .models import Agendamento, CaCursos, Curso
 class CaCursosForm(forms.ModelForm):
     class Meta:
         model = CaCursos
-        fields = ['nome', 'image']
+        fields = ['nome']
 
 class CursoForm(forms.ModelForm):
     class Meta:
         model = Curso
-        fields = ['nome', 'image', 'descricao', 'dataInicio', 'dataFim', 'hora_inicio', 'hora_final', 'dias', 'valor_cur', 'fk_idCaCursos', 'fk_idFuncionario' ]
+        fields = ['nome', 'descricao', 'dataInicio', 'dataFim', 'hora_inicio', 'hora_final', 'dias', 'valor_cur', 'fk_idCaCursos', 'fk_idFuncionario' ]
 
 
 class UsuarioForm(forms.ModelForm):

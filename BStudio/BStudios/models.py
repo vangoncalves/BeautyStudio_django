@@ -13,7 +13,6 @@ class Usuario(models.Model):
 class CaCursos(models.Model):
     idCaCursos = models.BigAutoField(primary_key=True)
     nome = models.CharField(max_length=200, null=False)
-    image = models.ImageField(null=True)
 
     def __str__(self):
         return self.nome
@@ -31,7 +30,6 @@ class Funcionario(models.Model):
 class Curso(models.Model):
     idCurso = models.BigAutoField(primary_key=True)
     nome = models.CharField(max_length=100, null=False)
-    image = models.ImageField(null=True)
     descricao = models.CharField(max_length=300, null=False)
     dataInicio = models.DateField(null=False)
     dataFim = models.DateField(null=False)
