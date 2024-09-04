@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h3>Curso: {{ curso }}</h3>
+    <p>Curso: {{ curso }}</p>
 
     <p>Cursos:</p>
     <ul>
@@ -19,5 +19,6 @@
 
         {% endfor %}
     </ul>
-    <a href="{% url 'cursoadd' %}">Adicionar novo curso</a>
+    <p><a href="{% url 'cursoadd' curso.idCaCursos%}">Adicionar novo curso</a></p>
+    
 {% endblock content %}

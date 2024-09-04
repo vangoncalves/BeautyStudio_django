@@ -31,24 +31,27 @@ def cursosadd(request):
 
 
 def curso(request, idCaCursos):
-    """Mostra um unico curso e todas as suas entradas"""
+    """Mostra uma unica categoria e todos os seus cursos"""
     curso = CaCursos.objects.get(idCaCursos = idCaCursos)
     cursos = curso.curso_set.order_by('-nome')
     context ={'curso': curso, 'cursos':cursos}
     return render(request, 'BStudios/curso.html', context)
 
-"""Não está pronto"""
-def cursoadd(request):
+def cursoadd(request, idCaCursos):
     """Adiciona um novo curso."""
+    cursos = CaCursos.objects.get(idCaCursos=idCaCursos)
+
     if request.method != 'POST':
         form = CursoForm()
     else:
-        form = CursoForm(request.POST)
+        form = CursoForm(data=request.POST)
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('curso'))
+            cursoadd = form.save(commit=False)
+            cursoadd.fk_idCaCursos = cursos
+            cursoadd.save()
+            return HttpResponseRedirect(reverse('curso', args=[idCaCursos]))
         
-    context = {'forms':form}
+    context = {'cursos':cursos,'form':form}
     return render(request, 'BStudios/curso_add.html', context)
 
 
