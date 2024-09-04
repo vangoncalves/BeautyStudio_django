@@ -1,0 +1,15 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+    <ul>
+        {% for cacurso in cacursos %}
+            <li>
+                <a href="{% url 'curso' cacurso.idCaCursos %}">{{ cacurso }}</a>
+            </li>
+        {% empty %}
+            <li>Não há cursos adicionados.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cursosadd' %}">Adicionar nova categoria</a>
+{% endblock content%}

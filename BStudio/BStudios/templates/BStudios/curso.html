@@ -1,0 +1,23 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+    <h3>Curso: {{ curso }}</h3>
+
+    <p>Cursos:</p>
+    <ul>
+        {% for curso in cursos %}
+        <li>
+            <p><a href="{% url 'detalhes' curso.idCurso %}">{{ curso.nome}}</a></p>
+            <p>{{ curso.descricao | linebreaks}}</p>
+        </li>
+
+        {% empty %}
+        <li>
+            Não há curso.
+        </li>
+
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cursoadd' %}">Adicionar novo curso</a>
+{% endblock content %}

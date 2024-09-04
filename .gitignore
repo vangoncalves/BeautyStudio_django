@@ -1,28 +1,77 @@
-# Python
-__pycache__/
-*.py[cod]
+# Ambiente Virtual
+venv/
+env/
+ENV/
+.venv/
+.VENV/
+
+# Arquivos compilados do Python
+*.pyc
 *.pyo
 *.pyd
-*.whl
-.Python
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Django
-*.log
-*.pot
-*.pyc
-.venv
-.env
-local_settings.py
+# Banco de dados local (SQLite)
 db.sqlite3
-media/
+db.sqlite3-journal
 
-# Outros arquivos e diretórios que você pode querer ignorar
+# Arquivos de log
+*.log
+
+# Configurações locais e arquivos de ambiente
+.env
+.env.local
+.env.*.local
+*.env
+
+# Mídia e arquivos de upload
+media/
+uploads/
+
+# Arquivos de cache
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.temp
+*.log
+.cache/
+*.log
+.cache/
+.django_cache/
+
+# Arquivos e diretórios de ferramentas
 .vscode/
 .idea/
-*.sqlite3
-*.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Configurações de SO
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de configuração do PyCharm/JetBrains
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# Arquivos relacionados ao coverage
+htmlcov/
+.coverage
+.tox/
+.coverage.*
+
+# Arquivos estáticos gerados
+staticfiles/
+static/
+
+# Diretórios de testes e resultados
+test-results/
+coverage/
+.tox/
+noxfile_output/
