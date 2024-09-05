@@ -9,7 +9,13 @@
         {% for curso in cursos %}
         <li>
             <p><a href="{% url 'detalhes' curso.idCurso %}">{{ curso.nome}}</a></p>
+
+            {% if curso.image %}
+                <img src="{{ curso.image.url }}" alt="{{ curso.nome }}">
+            {% endif %}
+
             <p>{{ curso.descricao | linebreaks}}</p>
+            <p><a href="{% url 'edit_curso' curso.idCurso}">Editar anotação</a></p>
         </li>
 
         {% empty %}
@@ -19,6 +25,7 @@
 
         {% endfor %}
     </ul>
+
     <p><a href="{% url 'cursoadd' curso.idCaCursos%}">Adicionar novo curso</a></p>
     
 {% endblock content %}

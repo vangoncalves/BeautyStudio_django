@@ -6,18 +6,9 @@
 
 <p>Adicione um novo curso</p>
 
-<form action="{% url 'cursoadd' cursos.idCaCursos %}" method="post">
+<form action="{% url 'cursoadd' cursos.idCaCursos %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <p>Nome: {{ form.nome }}</p>
-    <p>Descrição: {{ form.descricao }}</p>
-    <p>Inicio:{{ form.dataInicio }}</p>
-    <p>Fim:{{ form.dataFim }}</p>
-    <p>Horario inicial:{{ form.hora_inicio }}</p>
-    <p>Horario final:{{ form.hora_final }}</p>
-    <p>Dias:{{ form.dias }}</p>
-    <p>Valor:{{ form.valor_cur }}</p>
-    <p>Categoria:{{ form.fk_idCaCursos }}</p>
-    <p>Funcionario:{{ form.fk_idFuncionario }}</p>
+    {{ form.as_p }}
     <button name="submit">Agendar</button>
 </form>
 

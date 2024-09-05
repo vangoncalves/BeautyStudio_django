@@ -6,6 +6,11 @@
         {% for cacurso in cacursos %}
             <li>
                 <a href="{% url 'curso' cacurso.idCaCursos %}">{{ cacurso }}</a>
+                {% if cacurso.image %}
+                    <img src="{{ cacurso.image.url }}" alt="{{ cacurso.nome }}" style="max-width: 200px; height: auto;">
+                {% else %}
+                    <p>Sem imagem disponível</p>
+                {% endif %}
             </li>
         {% empty %}
             <li>Não há cursos adicionados.</li>
