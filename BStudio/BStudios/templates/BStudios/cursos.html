@@ -11,6 +11,7 @@
                 {% else %}
                     <p>Sem imagem disponível</p>
                 {% endif %}
+                <p><a href="{% url 'edit_cursos' cacurso.idCaCursos %}">Editar anotação</a></p>
             </li>
         {% empty %}
             <li>Não há cursos adicionados.</li>

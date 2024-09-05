@@ -29,9 +29,23 @@ def cursosadd(request):
     context = {'form':form}
     return render(request, 'BStudios/cursos_add.html', context)
 
-def edit_cursos(request, idCaCursos):
+def edit_cursos(request, edit_idCaCursos):
     """Edita uma entrada existente"""
-    categoria = CaCursos.objects.get(idCaCursos=idCaCursos)
+    edit = CaCursos.objects.get(idCaCursos=edit_idCaCursos)
+
+    if request.method != 'POST':
+        form = CaCursosForm(instance=edit)
+
+    else:
+        form = CaCursosForm(request.POST, request.FILES, instance=edit)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('cursos'))
+    
+    context ={'edit':edit, 'form':form}
+    return render(request, 'BStudios/edit_cursos.html', context)
+
+
 
 def curso(request, idCaCursos):
     """Mostra uma unica categoria e todos os seus cursos"""
@@ -58,19 +72,19 @@ def cursoadd(request, idCaCursos):
     return render(request, 'BStudios/curso_add.html', context)
 
 """Nao ta pronto"""
-def edit_curso(request, edit_id):
+def edit_curso(request, edit_idCurso):
     """Edita uma entrada existente"""
-    edit = Curso.objects.get(id=edit_id)
-    cursos = edit.fk_idCaCursos
+    edit = Curso.objects.get(idCurso=edit_idCurso)
+    cursos = edit_idCurso.fk_idCaCursos
 
     if request.method != 'POST':
         form = CursoForm(instance=edit)
 
     else:
-        form = CursoForm(instance=edit, data=request.POST)
+        form = CursoForm(instance=edit, data=request.POST, files=request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('curso', args=[cursos.idCaCursos]))
+            return HttpResponseRedirect(reverse('curso', args=[edit.idCurso]))
     
     context ={'edit':edit, 'cursos':cursos, 'form':form}
     return render(request, 'BStudios/edit_curso.html', context)

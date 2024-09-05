@@ -6,7 +6,7 @@
 <form action="{% url 'cursosadd' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button name="submit">Agendar</button>
+    <button type="submit">Adicionar</button>
 </form>
 
 {% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "Bstudios/master.html" %}
+
+{% block content %}
+
+<p><a href="{% url 'cursos' %}">{{ edit.nome }}</a></p>
+
+<p>Editar curso:</p>
+
+<form action="{% url 'edit_cursos' edit.idCaCursos %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+</form>
+
+{% endblock content %}
