@@ -21,4 +21,6 @@ urlpatterns = [
     path('edit_curso/<edit_idCurso>', views.edit_curso, name='edit_curso'),
       # Incluir as URLs do app 'users'
     path('users/', include('users.urls')),
+    path('login/', include('django.contrib.auth.urls')), 
+
 ]
