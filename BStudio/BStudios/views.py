@@ -110,20 +110,6 @@ def agendamentos(request):
     context = {'forms':form}
     return render(request, 'BStudios/agendamentos.html', context)
 
-#David testando---------------------------------
-def arealogin(request):
-    """area login"""
-    if request.method != 'POST':
-        form = arealogin()
-    else:
-        form = arealogin(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('arealogin'))
-        
-    context = {'forms':form}
-    return render(request, 'BStudio/users/template/arealogin.html', context)
-
 
 
 

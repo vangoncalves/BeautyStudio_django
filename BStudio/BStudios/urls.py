@@ -1,6 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
-from users.views import arealogin
+
 
 urlpatterns = [
     #Pagina inicial
@@ -19,8 +19,6 @@ urlpatterns = [
     path('curso/<idCurso>/', views.detalhes, name='detalhes'),
     path('cursoadd/<idCaCursos>', views.cursoadd, name='cursoadd'),
     path('edit_curso/idCaCursos/<edit_idCurso>', views.edit_curso, name='edit_curso'),
-    
-
-
-    path('arealogin', views.arealogin, name='arealogin'), #adicionado  por david
+      # Incluir as URLs do app 'users'
+    path('users/', include('users.urls')),
 ]
