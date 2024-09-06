@@ -75,18 +75,19 @@ def cursoadd(request, idCaCursos):
 def edit_curso(request, edit_idCurso):
     """Edita uma entrada existente"""
     edit = Curso.objects.get(idCurso=edit_idCurso)
-    cursos = edit_idCurso.fk_idCaCursos
+    curso = Curso.fk_idCaCursos
 
     if request.method != 'POST':
         form = CursoForm(instance=edit)
 
     else:
-        form = CursoForm(instance=edit, data=request.POST, files=request.FILES)
+        form = CursoForm(request.POST, request.FILES, instance=edit)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('curso', args=[edit.idCurso]))
+            return HttpResponseRedirect(reverse('detalhes', args=[edit.idCurso]))
     
-    context ={'edit':edit, 'cursos':cursos, 'form':form}
+    context = {'edit': edit, 'curso': curso, 'form': form}
+
     return render(request, 'BStudios/edit_curso.html', context)
 
 def detalhes(request, idCurso):

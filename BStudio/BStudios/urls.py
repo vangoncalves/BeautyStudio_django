@@ -18,7 +18,7 @@ urlpatterns = [
     path('cursos/<idCaCursos>/', views.curso, name='curso'),
     path('curso/<idCurso>/', views.detalhes, name='detalhes'),
     path('cursoadd/<idCaCursos>', views.cursoadd, name='cursoadd'),
-    path('edit_curso/idCaCursos/<edit_idCurso>', views.edit_curso, name='edit_curso'),
+    path('edit_curso/<edit_idCurso>', views.edit_curso, name='edit_curso'),
       # Incluir as URLs do app 'users'
     path('users/', include('users.urls')),
 ]

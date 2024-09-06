@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<p><a href="{% url 'detalhe' edit.fk_idCaCursos.idCaCursos %}">{{ curso }}</a></p>
+<p><a href="{% url 'detalhes' edit.idCurso %}">{{ curso }}</a></p>
 
 <p>Editar curso:</p>
 
-<form action="{% url 'edit_curso' edit.idCurso %}" method="post">
+<form action="{% url 'edit_curso' edit.idCurso %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button name="submit">Salvar</button>
