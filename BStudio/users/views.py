@@ -1,21 +1,5 @@
-#from django.shortcuts import render
-#from django.http import HttpResponseRedirect
-#from django.urls import reverse
-
-# Create your views here.
-#def arealogin(request):
-#    """area login"""
-#    if request.method != 'POST':
-#        form = arealogin()
-#    else:
-#        form = arealogin(request.POST)
-#        if form.is_valid():
-#            form.save()
-#            return HttpResponseRedirect(reverse('arealogin'))
-#        
-#    context = {'forms':form}
-#    return render(request, 'BStudio/users/template/arealogin.html', context)
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 
 def arealogin(request):
@@ -25,7 +9,18 @@ def arealogin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('arealogin.html')  # ou outra página após login
+            return redirect('arealogin.html')  #colocar a pagina que o user vai após login
         else:
             return render(request, 'arealogin.html', {'error': 'Credenciais inválidas'})
     return render(request, 'arealogin.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)  #Login automático após cadastro
+            return redirect('home')  #Redireciona para a página inicial após login, deve ser mudado isso!!!
+    else:
+        form = UserCreationForm()
+    return render(request, 'users/register.html', {'form': form})
