@@ -2,6 +2,13 @@
 
 {% block content %}
 
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    
+
     {% if form.errors %}
         <p>Seu login e senha estão incorretos. Por favor, tente novamente! </p>
     {% endif%}
@@ -12,7 +19,8 @@
 
 
         <button name="submit">Entrar</button>
-        <input type="hidden" name="text" value="{% url 'index' %}"/>
+        <input type="hidden" name="text" value="{% url 'arealogin' %}"/>
     </form>
 
 {% endblock content %}
+

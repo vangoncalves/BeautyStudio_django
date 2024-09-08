@@ -1,17 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre-se</title>
-</head>
-<body>
-    <h2>Cadastro</h2>
-    <fomr method="POST">
+
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <p>Seu login e senha estão incorretos. Por favor, tente novamente! </p>
+    {% endif%}
+
+    <form action="{% url 'areacadastro' %}" method="post">
         {% csrf_token %}
         {{form.as_p}}
-        <buttom type="submit">Cadastre-se</buttom>
-    </fomr>
-    
-</body>
-</html>
+        
+        <button name="submit">Cadastrar</button>
+        <input type="hidden" name="text" value="{% url 'arealogin' %}"/>
+    </form>
+
+{% endblock content %}
+
+
+   
+  

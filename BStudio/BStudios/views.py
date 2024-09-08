@@ -4,6 +4,7 @@ from .forms import CursoForm, CaCursosForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+
 def index(request):
     """Página principal do Beauty Studio"""
     return render(request, 'BStudios/index.html')
