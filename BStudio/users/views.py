@@ -32,6 +32,7 @@ def areacadastro(request):
     return render(request, 'users/areacadastro.html', {'form': form})
 
 def logout_view(request):
-    logout(request)
-    return redirect('index.html')  # Redireciona para a página de login após o logout
+    #return render(request, "users/arealogin.html")
+    #logout(request)
+    return redirect('arealogin')  # Redireciona para a página de login após o logout
 
