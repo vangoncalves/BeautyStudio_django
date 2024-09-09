@@ -10,10 +10,9 @@
     <title>Beauty & Cursos</title>
     <link rel="stylesheet" href="{% static 'css/master.css' %}">
     <link rel="shortcut icon" href="{% static 'media/template_2.png' %}" type="image/x-icon"/>
-    
 </head>
 <body>
-    <nav>
+    <header> <!--Troquei o <nav> para o <header> pois antes o menu de acessibilidade que ocupava o lugar-->
       <div class="cabecalho">
         <ul class="img">
           <li>
@@ -50,10 +49,9 @@
               <li><a href="{% url 'areacadastro' %}">Cadastre-se</a></li>
               <li><a href="{% url 'logout' %}">Sair</a></li><!--Adicionado por DL-->
           </ul>
-          
         </div>
       </div>
-    </nav>
+    </header>
 
     {% block content %}
 
