@@ -23,10 +23,8 @@ def areacadastro(request):
         form = UsuarioRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            # Define a senha aqui, sem salvar ainda
             user.set_password(form.cleaned_data['password'])
-            user.save()  # Salva o usuário depois de definir a senha
-            login(request, user)  # Login automático após cadastro
+            user.save() 
             messages.success(request, f'Bem-vindo, {user.username}! Seu cadastro foi realizado com sucesso.')
             return redirect('arealogin')  # Redireciona para a página de login
     else:
@@ -35,5 +33,5 @@ def areacadastro(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('arealogin')  # Redireciona para a página de login após o logout
+    return redirect('index.html')  # Redireciona para a página de login após o logout
 
