@@ -3,6 +3,7 @@ from .models import *
 from .forms import CursoForm, CaCursosForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
 
 
 def index(request):
@@ -72,7 +73,6 @@ def cursoadd(request, idCaCursos):
     context = {'cursos':cursos,'form':form}
     return render(request, 'BStudios/curso_add.html', context)
 
-"""Nao ta pronto"""
 def edit_curso(request, edit_idCurso):
     """Edita uma entrada existente"""
     edit = Curso.objects.get(idCurso=edit_idCurso)
@@ -96,6 +96,17 @@ def detalhes(request, idCurso):
     detalhe = Curso.objects.get(idCurso = idCurso)
     context ={'detalhe':detalhe}
     return render(request, 'BStudios/curso_detalhes.html', context)
+
+def excluir_curso(request, excluir_curso):
+    curso = Curso.objects.get(idCurso=excluir_curso)
+
+    if request.method == 'POST':
+        curso.delete()
+        messages.success(request, 'Curso deletado com sucesso!')
+        return HttpResponseRedirect(reverse('curso', args=[idCaCursos]))
+    context = {'curso':curso}
+    return render(request, 'BStudios/delete_curso.html', context)
+
 
 
 """Não está pronto"""

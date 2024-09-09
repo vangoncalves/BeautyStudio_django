@@ -1,0 +1,12 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+<h2>Tem certeza que deseja deletar o curso "{{ curso.nome }}"?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Deletar</button>
+    <a href="{% url 'curso' %}">Cancelar</a>
+</form>
+
+{% endblock content %}
