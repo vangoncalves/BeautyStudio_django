@@ -67,7 +67,8 @@ htmlcov/
 .coverage.*
 
 # Arquivos estáticos gerados
-
+staticfiles/
+static/
 
 # Diretórios de testes e resultados
 test-results/
