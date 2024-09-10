@@ -69,6 +69,7 @@ htmlcov/
 # Arquivos estáticos gerados
 staticfiles/
 
+
 # Diretórios de testes e resultados
 test-results/
 coverage/
