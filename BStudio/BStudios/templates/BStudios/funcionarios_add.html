@@ -1,0 +1,24 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>Adicione um novo funcionario:</p>
+
+<form action="{% url 'funcionariosadd' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Adicionar</button>
+</form>
+
+{% endblock content %}

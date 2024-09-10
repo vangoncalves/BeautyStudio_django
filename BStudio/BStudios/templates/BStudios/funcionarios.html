@@ -1,0 +1,28 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <ul>
+        {% for funcionarios in funcionario %}
+            <li>
+                <a href="{% url 'funcionarios' funcionario.idFuncionario %}">{{ funcionario.nome }}</a>
+            </li>
+        {% empty %}
+            <li>Não há funcionarios adicionados.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'funcionariosadd' %}">Adicionar novo Funcionario</a>
+
+{% endblock content%}

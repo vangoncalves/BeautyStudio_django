@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-from .forms import CursoForm, CaCursosForm
+from .forms import CursoForm, CaCursosForm, FuncionarioForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
@@ -9,6 +9,24 @@ from django.contrib import messages
 def index(request):
     """Página principal do Beauty Studio"""
     return render(request, 'BStudios/index.html')
+
+
+def funcionarios(request):
+    funcionario = Funcionario.objects.order_by('nome')
+    context = {'funcionario': funcionario}
+    return render(request, 'BStudios/funcionarios.html', context)
+
+def funcionariosadd(request):
+    if request.method != 'POST':
+        form = FuncionarioForm()
+    else:
+        form = FuncionarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('funcionarios'))
+        
+    context = {'form':form}
+    return render(request, 'BStudios/funcionarios_add.html', context)
 
 
 
