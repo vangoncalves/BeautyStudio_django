@@ -69,6 +69,7 @@ htmlcov/
 # Arquivos estáticos gerados
 staticfiles/
 static/
+!static/*
 
 # Diretórios de testes e resultados
 test-results/
