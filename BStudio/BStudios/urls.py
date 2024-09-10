@@ -11,7 +11,8 @@ urlpatterns = [
     path('cursosadd', views.cursosadd, name='cursosadd'),
     path('edit_cursos/<edit_idCaCursos>', views.edit_cursos, name='edit_cursos'),
     
-
+    path('funcionarios', views.cursos, name='cursos'),
+    path('funcionariosadd', views.cursosadd, name='cursosadd'),
 
     path('agendamentos', views.agendamentos, name='agendamentos'),
 
