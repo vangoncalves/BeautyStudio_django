@@ -1,0 +1,9 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+<h2>Você já comprou este curso!</h2>
+<p>Curso: {{ curso.nome }}</p>
+<a href="{% url 'perfil' %}">Ver minhas compras</a>
+
+{% endblock content %}

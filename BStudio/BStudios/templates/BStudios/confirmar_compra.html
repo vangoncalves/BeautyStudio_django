@@ -1,0 +1,17 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+<h2>Confirmar Compra</h2>
+<p>Curso: {{ curso.nome }}</p>
+<p>Descrição: {{ curso.descricao }}</p>
+<p>Valor: R$ {{ curso.valor_cur }}</p>
+
+<form method="POST">
+  {% csrf_token %}
+  <label for="metodo_pagamento">Método de Pagamento:</label>
+  {{ form.metodo_pagamento }}
+  <button type="submit">Confirmar Compra</button>
+</form>
+
+{% endblock content %}

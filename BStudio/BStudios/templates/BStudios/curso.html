@@ -42,7 +42,9 @@
         {% endfor %}
     </ul>
 
+    {% if user.is_authenticated %}
     <p><a href="{% url 'cursoadd' curso.idCaCursos%}">Adicionar novo curso</a></p>
+    {% endif %}
     
     
 {% endblock content %}

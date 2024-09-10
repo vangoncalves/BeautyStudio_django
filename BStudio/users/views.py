@@ -1,22 +1,24 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages 
 from .forms import UsuarioRegistrationForm
 from .models import Usuario
 from django.contrib.auth import logout
-
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 def arealogin(request):
     if request.method == "POST":
         username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        senha = request.POST['senha']
+        user = authenticate(request, username=username, password=senha)
         if user is not None:
             login(request, user)
             return redirect('master.html')  #colocar a pagina que o user vai após login
         else:
-            return render(request, 'arealogin.html', {'error': 'Credenciais inválidas'})
-    return render(request, 'arealogin.html')
+             context = {'error': 'Credenciais inválidas'}
+             return render(request, 'users/arealogin.html', context)
+    return render(request, 'users/arealogin.html')
 
 def areacadastro(request):
     if request.method == 'POST':
@@ -32,7 +34,8 @@ def areacadastro(request):
     return render(request, 'users/areacadastro.html', {'form': form})
 
 def logout_view(request):
-    #return render(request, "users/arealogin.html")
+    """Faz logout do usuário"""
     logout(request)
-    return redirect('arealogin')  # Redireciona para a página de login após o logout
+    return HttpResponseRedirect(reverse('index')) # Redireciona para a página index após o logout
+
 

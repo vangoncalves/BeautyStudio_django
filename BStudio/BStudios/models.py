@@ -1,14 +1,5 @@
 from django.db import models
 
-class Usuario(models.Model):
-    idUsuario = models.BigAutoField(primary_key=True)
-    nome = models.CharField(max_length=300, null=False)
-    telefone = models.CharField(max_length=11, null=True)
-    email = models.EmailField(max_length=300, null=False)
-    username = models.CharField('username', max_length=11, null=True)
-
-    def __str__(self):
-        return self.email + " - " + self.nome
 
 class CaCursos(models.Model):
     idCaCursos = models.BigAutoField(primary_key=True)
@@ -58,8 +49,7 @@ class Pedido(models.Model):
     idPedido = models.BigAutoField(primary_key=True)
     fk_idCaCursos = models.ForeignKey(CaCursos, on_delete=models.CASCADE)
     data = models.DateTimeField(auto_now_add=True)
-    total = models.DecimalField(max_digits=10, decimal_places=2)
-    fk_idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    fk_idUsuario = models.ForeignKey('users.Usuario', on_delete=models.CASCADE)
     fk_idCurso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     fk_idMetodoPagamento = models.ForeignKey(MetodoPagamento, on_delete=models.CASCADE)
 

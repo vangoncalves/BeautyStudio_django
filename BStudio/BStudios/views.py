@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
-from .forms import CursoForm, CaCursosForm
+from .forms import CursoForm, CaCursosForm, MetodoPagamentoForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -121,21 +122,58 @@ def excluir_curso(request, idCurso):
     return render(request, 'BStudios/delete_curso.html', context)
 
 
+@login_required
+def perfil(request):
+    pedido = Pedido.objects.filter(fk_idUsuario=request.user)
+    context={'pedido': pedido}
+    return render(request, 'BStudios/perfil.html', context) 
+       
+@login_required
+def comprar_pedido(request, idCurso):
+    curso = Curso.objects.get(idCurso=idCurso)
+    # Verificar se o usuário já comprou o curso
+    if Pedido.objects.filter(fk_idUsuario=request.user, fk_idCurso=curso).exists():
+        return render(request, 'BStudios/ja_comprou.html', {'curso': curso})
 
-"""Não está pronto"""
-def agendamentos(request):
-    """Agenda um curso"""
-    if request.method != 'POST':
-        form = UsuarioForm()
-    else:
-        form = UsuarioForm(request.POST)
+    if request.method == 'POST':
+        form = MetodoPagamentoForm(request.POST)
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('agendamentos'))
+            metodo_pagamento = form.cleaned_data['metodo_pagamento']
         
-    context = {'forms':form}
-    return render(request, 'BStudios/agendamentos.html', context)
+        compra = Pedido(
+            fk_idCaCursos=curso.fk_idCaCursos,
+            fk_idUsuario=request.user,
+            fk_idCurso=curso,
+            # Você deve fornecer o campo `fk_idMetodoPagamento` também
+            fk_idMetodoPagamento=metodo_pagamento  # Ajuste conforme necessário para fornecer um valor válido
+        )
+        compra.save()
+        return redirect('perfil')
 
+    form = MetodoPagamentoForm()
+    context = {'curso':curso, 'form':form}
+    return render(request, 'BStudios/confirmar_compra.html', context)
 
+    """@login_required
+def agendamento(request,id):
+    form = AgendamentoForm(request.POST or None)
+    passeio = Passeio.objects.get(pk=id)
+    if form.is_valid():
+        agendamento = form.save(commit=False)
+        agendamento.usuario = request.user     
+        agendamento.save()
+        msg_sucesso="Agendamento realizado com sucesso!"
+        contexto = {
+            "form": form,
+            "passeio": passeio,
+            "mensagem": msg_sucesso
+        }
+        return render(request, 'agendamento.html', contexto)
+    contexto = {
+        "form": form,
+        "passeio": passeio
+    }
+
+    return render(request, 'agendamento.html', contexto)"""
 
 
