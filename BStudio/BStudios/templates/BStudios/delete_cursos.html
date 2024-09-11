@@ -8,11 +8,11 @@
 <br>
 <br>
 <br>
-<h2>Tem certeza que deseja deletar o curso "{{ cursos.nome }}"?</h2>
+<h2>Tem certeza que deseja deletar a categoria "{{ cursos.nome }}"?</h2>
 <form method="post">
     {% csrf_token %}
     <button type="submit">Deletar</button>
-    <a href="{% url 'curso' cursos.fk_idCaCursos.idCaCursos %}">Cancelar</a>
+    <a href="{% url 'cursos' %}">Cancelar</a>
 </form>
 
 {% endblock content %}

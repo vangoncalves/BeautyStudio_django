@@ -2,6 +2,22 @@
 
 {% block content %}
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <ul>
         {% for cacurso in cacursos %}
             <li>
@@ -12,6 +28,7 @@
                     <p>Sem imagem disponível</p>
                 {% endif %}
                 <p><a href="{% url 'edit_cursos' cacurso.idCaCursos %}">Editar anotação</a></p>
+                <a href="{% url 'excluir_cursos' cacurso.idCaCursos %}">Adicionar nova categoria</a>
             </li>
         {% empty %}
             <li>Não há cursos adicionados.</li>

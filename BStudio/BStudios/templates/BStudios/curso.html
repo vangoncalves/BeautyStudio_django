@@ -2,13 +2,29 @@
 
 {% block content %}
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <p>Curso: {{ curso }}</p>
 
     <p>Cursos:</p>
     <ul>
         {% for curso in cursos %}
         <li>
-            <p><a href="{% url 'detalhes' curso.idCurso %}">{{ curso.nome}}</a></p>
+            <a href="{% url 'detalhes' curso.idCurso %}">{{ curso.nome}}</a>
 
             {% if curso.image %}
                 <img src="{{ curso.image.url }}" alt="{{ curso.nome }}">
@@ -27,5 +43,6 @@
     </ul>
 
     <p><a href="{% url 'cursoadd' curso.idCaCursos%}">Adicionar novo curso</a></p>
+    
     
 {% endblock content %}

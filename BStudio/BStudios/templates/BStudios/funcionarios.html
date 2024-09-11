@@ -15,9 +15,12 @@
 <br>
 <br>
     <ul>
-        {% for funcionarios in funcionario %}
+        {% for funcionario in funcionarios %}
             <li>
-                <a href="{% url 'funcionarios' funcionario.idFuncionario %}">{{ funcionario.nome }}</a>
+                <p>{{ funcionario.nome }}</p>
+                <p>{{ funcionario.email }}</p>
+                <p>{{ funcionario.telefone }}</p>
+                <p>{{ funcionario.cargo }}</p>
             </li>
         {% empty %}
             <li>Não há funcionarios adicionados.</li>

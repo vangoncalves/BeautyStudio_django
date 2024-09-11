@@ -12,8 +12,8 @@ def index(request):
 
 
 def funcionarios(request):
-    funcionario = Funcionario.objects.order_by('nome')
-    context = {'funcionario': funcionario}
+    funcionarios = Funcionario.objects.order_by('nome')
+    context = {'funcionarios': funcionarios}
     return render(request, 'BStudios/funcionarios.html', context)
 
 def funcionariosadd(request):
@@ -65,6 +65,16 @@ def edit_cursos(request, edit_idCaCursos):
     context ={'edit':edit, 'form':form}
     return render(request, 'BStudios/edit_cursos.html', context)
 
+def excluir_cursos(request, idCaCursos):
+    cursos = CaCursos.objects.get(idCaCursos=idCaCursos)
+
+    if request.method == 'POST':
+        cursos.delete()
+        messages.success(request, 'Categoria deletada com sucesso!')
+        return HttpResponseRedirect(reverse('cursos'))
+    context = {'cursos':cursos}
+    return render(request, 'BStudios/delete_cursos.html', context)
+
 
 
 def curso(request, idCaCursos):
@@ -91,9 +101,9 @@ def cursoadd(request, idCaCursos):
     context = {'cursos':cursos,'form':form}
     return render(request, 'BStudios/curso_add.html', context)
 
-def edit_curso(request, edit_idCurso):
+def edit_curso(request, idCurso):
     """Edita uma entrada existente"""
-    edit = Curso.objects.get(idCurso=edit_idCurso)
+    edit = Curso.objects.get(idCurso=idCurso)
     curso = Curso.fk_idCaCursos
 
     if request.method != 'POST':
@@ -115,14 +125,15 @@ def detalhes(request, idCurso):
     context ={'detalhe':detalhe}
     return render(request, 'BStudios/curso_detalhes.html', context)
 
-def excluir_curso(request, excluir_curso):
-    curso = Curso.objects.get(idCurso=excluir_curso)
+def excluir_curso(request, idCurso):
+    curso = Curso.objects.get(idCurso=idCurso)
+    idCaCursos = curso.fk_idCaCursos.idCaCursos
 
     if request.method == 'POST':
         curso.delete()
         messages.success(request, 'Curso deletado com sucesso!')
         return HttpResponseRedirect(reverse('curso', args=[idCaCursos]))
-    context = {'curso':curso}
+    context = {'cursos':curso}
     return render(request, 'BStudios/delete_curso.html', context)
 
 

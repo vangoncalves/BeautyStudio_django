@@ -34,14 +34,3 @@
             gap: 10%;
             justify-content: center;
         }
-        @media screen and (max-width:900px){
-            .img-desktop{
-                display: none;
-            }
-            .img-mobile{
-                display: block;
-            }
-            .nav-auto, .nav-manual{
-                margin-top: 60%;/*pode mudar*/
-            }
-        }

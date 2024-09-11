@@ -15,6 +15,7 @@
             <p>Valor: {{ detalhe.valor_cur }}</p>
             <p>Profissionais: {{ detalhe.fk_idFuncionario }}</p>
             <p><a href="{% url 'edit_curso' detalhe.idCurso %}">Editar anotação</a></p>
+            <p><a href="{% url 'excluir_curso' detalhe.idCurso%}">Adicionar novo curso</a></p>
         </li>
     </ul>
     <a href="{% url 'agendamentos' %}">Agendar</a>
