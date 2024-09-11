@@ -2,28 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Oregano', 'Gruppo', 'Dekko', 'Chivo Mono', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-ul
-{
+ul{
     list-style: none;
 }
-a
-{
+a{
     text-decoration: none;
     color: #FFF9FA;
 }
-h1
-{
+h1{
     color: #2f0210;
 }
-h2
-{
+h2{
     color: #441B28;
 }
-header 
-{
-    background-color: #2f0210;
+header{
+    background-color: #660a27;
     width: 100%;
     text-align: center;
     padding: 10px 20px;
@@ -31,7 +26,7 @@ header
     top: 30px; 
     z-index: 999; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    height: 27%;
+    height: 15%;
     
 }
 .cabecalho
@@ -40,6 +35,13 @@ header
     justify-content: space-between;
     padding:10px 0 20px;
     border-bottom: #FFF4E9 solid 1px;
+}
+.cabecalho,
+.logo{
+    width: 30%;
+    height: 100px;
+    background-color: aquamarine;
+
 }
 .menu
 {
