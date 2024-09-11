@@ -33,6 +33,6 @@ def areacadastro(request):
 
 def logout_view(request):
     #return render(request, "users/arealogin.html")
-    #logout(request)
+    logout(request)
     return redirect('arealogin')  # Redireciona para a página de login após o logout
 
