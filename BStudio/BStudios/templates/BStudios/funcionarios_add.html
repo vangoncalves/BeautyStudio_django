@@ -15,7 +15,7 @@
 <br>
 <p>Adicione um novo funcionario:</p>
 
-<form action="{% url 'funcionariosadd' %}" method="post">
+<form action="{% url 'metodopagamentoadd' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Adicionar</button>

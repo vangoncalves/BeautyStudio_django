@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-from .forms import CursoForm, CaCursosForm, FuncionarioForm
+from .forms import CursoForm, CaCursosForm, MetodoPagamentoForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
@@ -11,16 +11,16 @@ def index(request):
     return render(request, 'BStudios/index.html')
 
 
-def funcionarios(request):
-    funcionarios = Funcionario.objects.order_by('nome')
+def metodopagamento(request):
+    funcionarios = MetodoPagamento
     context = {'funcionarios': funcionarios}
     return render(request, 'BStudios/funcionarios.html', context)
 
-def funcionariosadd(request):
+def metodopagamentoadd(request):
     if request.method != 'POST':
-        form = FuncionarioForm()
+        form = MetodoPagamentoForm()
     else:
-        form = FuncionarioForm(request.POST)
+        form = MetodoPagamentoForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('funcionarios'))

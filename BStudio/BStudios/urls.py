@@ -12,8 +12,8 @@ urlpatterns = [
     path('edit_cursos/<edit_idCaCursos>', views.edit_cursos, name='edit_cursos'),
     path('delete_cursos/<idCaCursos>', views.excluir_cursos, name='excluir_cursos'),
     
-    path('funcionarios', views.funcionarios, name='funcionarios'),
-    path('funcionariosadd', views.funcionariosadd, name='funcionariosadd'),
+    path('funcionarios', views.metodopagamento, name='funcionarios'),
+    path('metodopagamentoadd', views.metodopagamentoadd, name='metodopagamentoadd'),
 
     path('agendamentos', views.agendamentos, name='agendamentos'),
 
