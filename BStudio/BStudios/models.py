@@ -38,7 +38,7 @@ class Curso(models.Model):
     hora_inicio = models.TimeField(null=False)
     hora_final = models.TimeField(null=False)
     dias = models.CharField(max_length=100,null=False)
-    valor_cur = models.FloatField(null=False)
+    valor_cur = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     fk_idCaCursos = models.ForeignKey(CaCursos, on_delete=models.CASCADE)
     fk_idFuncionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
 
@@ -53,30 +53,15 @@ class MetodoPagamento(models.Model):
     def __str__(self):
       return self.tipo
 
-class Agendamento(models.Model):
-    idAgendamento = models.BigAutoField(primary_key=True)
+    
+class Pedido(models.Model):
+    idPedido = models.BigAutoField(primary_key=True)
     fk_idCaCursos = models.ForeignKey(CaCursos, on_delete=models.CASCADE)
+    data = models.DateTimeField(auto_now_add=True)
+    total = models.DecimalField(max_digits=10, decimal_places=2)
     fk_idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fk_idCurso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     fk_idMetodoPagamento = models.ForeignKey(MetodoPagamento, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.data.strftime("%Y/%m/##%d") + " - " + self.hora.srtftime("%H:%M:%S")
-
-class NotaFiscal(models.Model):
-    idNotaFiscal = models.BigAutoField(primary_key=True)
-    valor = models.CharField(max_length=100, null=False)
-    dataEmissao = models.DateTimeField(auto_now_add=True, null=False)
-    fk_idMetodoPagamento = models.ForeignKey(MetodoPagamento, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.valor + " - " + self.dataEmissao
-
-class Comprovante(models.Model):
-    idComprovante = models.BigAutoField(primary_key=True)
-    fk_idNotaFiscal = models.ForeignKey(NotaFiscal, on_delete=models.CASCADE)
-    fk_Agendamento = models.ForeignKey(Agendamento, on_delete=models.CASCADE)
-    data_hora = models.DateTimeField(auto_now_add=True, null=False)
-
-    def __str__(self):
-        return self.valor + " - " + self.dataEmissao
+        return self.data.strftime("%Y/%m/##%d")

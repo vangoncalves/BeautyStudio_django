@@ -1,5 +1,5 @@
 from django import forms
-from .models import Agendamento, CaCursos, Curso, Funcionario
+from .models import CaCursos, Curso, Funcionario
 
 class CaCursosForm(forms.ModelForm):
     class Meta:
