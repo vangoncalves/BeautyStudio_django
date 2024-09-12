@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-from .forms import CursoForm, CaCursosForm, MetodoPagamentoForm
+from .forms import CursoForm, CaCursosForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
@@ -9,24 +9,6 @@ from django.contrib import messages
 def index(request):
     """Página principal do Beauty Studio"""
     return render(request, 'BStudios/index.html')
-
-
-def metodopagamento(request):
-    funcionarios = MetodoPagamento
-    context = {'funcionarios': funcionarios}
-    return render(request, 'BStudios/funcionarios.html', context)
-
-def metodopagamentoadd(request):
-    if request.method != 'POST':
-        form = MetodoPagamentoForm()
-    else:
-        form = MetodoPagamentoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('funcionarios'))
-        
-    context = {'form':form}
-    return render(request, 'BStudios/funcionarios_add.html', context)
 
 
 
@@ -50,7 +32,7 @@ def cursosadd(request):
     return render(request, 'BStudios/cursos_add.html', context)
 
 def edit_cursos(request, edit_idCaCursos):
-    """Edita uma entrada existente"""
+    """Edita categoria existente"""
     edit = CaCursos.objects.get(idCaCursos=edit_idCaCursos)
 
     if request.method != 'POST':
@@ -66,6 +48,7 @@ def edit_cursos(request, edit_idCaCursos):
     return render(request, 'BStudios/edit_cursos.html', context)
 
 def excluir_cursos(request, idCaCursos):
+    """Exclui categoria de cursos"""
     cursos = CaCursos.objects.get(idCaCursos=idCaCursos)
 
     if request.method == 'POST':
@@ -102,7 +85,7 @@ def cursoadd(request, idCaCursos):
     return render(request, 'BStudios/curso_add.html', context)
 
 def edit_curso(request, idCurso):
-    """Edita uma entrada existente"""
+    """Edita um curso de uma determinada categoria existente"""
     edit = Curso.objects.get(idCurso=idCurso)
     curso = Curso.fk_idCaCursos
 
@@ -120,12 +103,13 @@ def edit_curso(request, idCurso):
     return render(request, 'BStudios/edit_curso.html', context)
 
 def detalhes(request, idCurso):
-    """Mostra um unico curso e todas as suas entradas"""
+    """Mostra detalhes de um unico curso de uma determinada categoria"""
     detalhe = Curso.objects.get(idCurso = idCurso)
     context ={'detalhe':detalhe}
     return render(request, 'BStudios/curso_detalhes.html', context)
 
 def excluir_curso(request, idCurso):
+    """Excluir um curso de uma determinada categoria"""
     curso = Curso.objects.get(idCurso=idCurso)
     idCaCursos = curso.fk_idCaCursos.idCaCursos
 

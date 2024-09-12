@@ -1,5 +1,5 @@
 from django import forms
-from .models import CaCursos, Curso, MetodoPagamento
+from .models import CaCursos, Curso
 
 class CaCursosForm(forms.ModelForm):
     class Meta:
@@ -12,8 +12,3 @@ class CursoForm(forms.ModelForm):
         model = Curso
         fields = ['nome', 'image', 'descricao', 'dataInicio', 'dataFim', 'hora_inicio', 'hora_final', 'dias', 'valor_cur', 'fk_idCaCursos', 'fk_idFuncionario' ]
         widgets = {'descricao':forms.Textarea(attrs={'cols':9})}
-
-class MetodoPagamentoForm(forms.ModelForm):
-    class Meta:
-        model = MetodoPagamento
-        fields = ['tipo' ]
