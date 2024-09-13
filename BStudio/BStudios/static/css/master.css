@@ -1,3 +1,5 @@
+/*Este CSS ele altera somente o cabeçalho e o rodapé*/
+
 * {
     margin: 0;
     padding: 0;
@@ -5,89 +7,8 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-header {
-    display: flex;
-    background-color: #420c1d;
-    width: 100%;
-    text-align: center;
-    margin-top: 50%;
-    height: 100px; /* Ajuste a altura conforme necessário */
-}
 
-.cabecalho {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0 25px;
-    border-bottom: #FFF4E9 solid 1px;
-    width: 100%;
-}
 
-.menu {
-    display: flex;
-    align-items: center;
-}
-
-.menu li {
-    list-style: none;
-}
-
-.menu li a {
-    padding: 30px;
-    text-align: center;
-    transition: background .3s;
-    margin-top: 18px;
-}
-
-.menu li a:hover {
-    background-color: #441B28;
-    color: #FFF4E9;
-}
-
-.submenu {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    background-color: #2f0210;
-    width: 100%;
-}
-
-.submenu ul {
-    gap: 20px;
-    padding: 10px;
-    display: flex;
-    list-style: none;
-}
-
-.submenu ul li {
-    position: relative;
-}
-
-.submenu ul li a {
-    display: inline-block;
-    padding: 10px;
-    transition: background .3s;
-}
-
-.submenu li a:hover {
-    background-color: #441B28;
-    color: #FFF4E9;
-}
-
-.submenu ul ul {
-    display: none;
-    position: absolute;
-    width: 150px;
-    left: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.submenu ul li:hover ul {
-    display: block;
-}
-
-.submenu ul ul li a {
-    display: block;
-}
 
 footer{
     background-color: #2f0210;
