@@ -3,10 +3,11 @@
 {% block content %}
 
 <h2>Cadastrar Superusuário</h2>
-<form method="POST">
+<form action="{% url 'areacadastroadmin' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Cadastrar Superusuário</button>
+    <input type="hidden" name="next" value="{% url 'index' %}"/>
 </form>
 
 {% endblock content %}

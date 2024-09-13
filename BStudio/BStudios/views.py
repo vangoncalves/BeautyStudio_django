@@ -122,8 +122,9 @@ def excluir_curso(request, idCurso):
     return render(request, 'BStudios/delete_curso.html', context)
 
 
-@login_required
+@login_required # Para isso acontecer, o usuario deve estar logado
 def perfil(request):
+    """Perfil do usuario"""
     user = request.user  # Obtém o usuário logado
     pedido = Pedido.objects.filter(fk_idUsuario=request.user)
     context={'pedido': pedido}
@@ -131,7 +132,9 @@ def perfil(request):
        
 @login_required
 def comprar_pedido(request, idCurso):
+    """Metodo para comprar cursos"""
     curso = Curso.objects.get(idCurso=idCurso)
+
     # Verificar se o usuário já comprou o curso
     if Pedido.objects.filter(fk_idUsuario=request.user, fk_idCurso=curso).exists():
         return render(request, 'BStudios/ja_comprou.html', {'curso': curso})
@@ -145,8 +148,7 @@ def comprar_pedido(request, idCurso):
             fk_idCaCursos=curso.fk_idCaCursos,
             fk_idUsuario=request.user,
             fk_idCurso=curso,
-            # Você deve fornecer o campo `fk_idMetodoPagamento` também
-            fk_idMetodoPagamento=metodo_pagamento  # Ajuste conforme necessário para fornecer um valor válido
+            fk_idMetodoPagamento=metodo_pagamento 
         )
         compra.save()
         return redirect('perfil')
@@ -154,27 +156,5 @@ def comprar_pedido(request, idCurso):
     form = MetodoPagamentoForm()
     context = {'curso':curso, 'form':form}
     return render(request, 'BStudios/confirmar_compra.html', context)
-
-    """@login_required
-def agendamento(request,id):
-    form = AgendamentoForm(request.POST or None)
-    passeio = Passeio.objects.get(pk=id)
-    if form.is_valid():
-        agendamento = form.save(commit=False)
-        agendamento.usuario = request.user     
-        agendamento.save()
-        msg_sucesso="Agendamento realizado com sucesso!"
-        contexto = {
-            "form": form,
-            "passeio": passeio,
-            "mensagem": msg_sucesso
-        }
-        return render(request, 'agendamento.html', contexto)
-    contexto = {
-        "form": form,
-        "passeio": passeio
-    }
-
-    return render(request, 'agendamento.html', contexto)"""
 
 

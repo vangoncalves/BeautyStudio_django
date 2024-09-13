@@ -4,17 +4,18 @@
    
 
     {% if form.errors %}
-        <p>Seu login e senha estão incorretos. Por favor, tente novamente! </p>
+        <p style="color: red;">Seu login e senha estão incorretos. Por favor, tente novamente! </p>
     {% endif%}
 
     <form action="{% url 'arealogin' %}" method="post">
         {% csrf_token %}
-        <p>Username: <input type="text" name="username"></p>
-        <p>Senha: <input type="password" name="senha"></p>
+        <p>Username: <input type="text" name="username"placeholder="Digite seu username" required></p>
+        <p>Senha: <input type="password" name="senha"  placeholder="Digite sua senha" required></p>
 
 
         <button name="submit">Entrar</button>
         <input type="hidden" name="text" value="{% url 'index' %}"/>
+        <p>Não possui uma conta?<a href="{% url 'areacadastro' %}"> Cadastre-se</a></p>
     </form>
 
 {% endblock content %}

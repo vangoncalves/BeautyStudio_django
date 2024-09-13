@@ -1,9 +1,0 @@
-<p>
-    {% if user.is_authenticated %}
-        Olá, {{ user.username }}
-    {% else %}
-        <a href="{% url 'login' %}">Entrar</a>
-        {% endif %}
-</p>
-
-{% block content %} {% endblock content %}

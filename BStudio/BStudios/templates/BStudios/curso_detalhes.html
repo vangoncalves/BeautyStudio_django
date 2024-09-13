@@ -14,10 +14,16 @@
             <p>Dias: {{ detalhe.dias }}</p>
             <p>Valor: {{ detalhe.valor_cur }}</p>
             <p>Profissionais: {{ detalhe.fk_idFuncionario }}</p>
+            {% if request.user.is_superuser %}
             <p><a href="{% url 'edit_curso' detalhe.idCurso %}">Editar curso</a></p>
             <p><a href="{% url 'excluir_curso' detalhe.idCurso%}">Adicionar novo curso</a></p>
+            {% endif %}
         </li>
     </ul>
     {% if user.is_authenticated %}
+    {% elif not request.user.is_superuser %}
     <a href="{% url 'comprar_curso' detalhe.idCurso%}">Comprar</a>
+    {% else %}
+    <a href="{% url 'arealogin' %}">Comprar</a>
+    {% endif %}
 {% endblock content %}

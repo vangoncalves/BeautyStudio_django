@@ -12,7 +12,7 @@
                 {% else %}
                     <p>Sem imagem disponível</p>
                 {% endif %}
-                {% if user.is_authenticated %}
+                {% if request.user.is_superuser %}
                 <p><a href="{% url 'edit_cursos' cacurso.idCaCursos %}">Editar categoria</a></p>
                 <p><a href="{% url 'excluir_cursos' cacurso.idCaCursos %}">Excluir categoria</a></p>
                 {% endif %}
@@ -21,7 +21,7 @@
             <li>Não há cursos adicionados.</li>
         {% endfor %}
     </ul>
-    {% if user.is_authenticated %}
+    {% if request.user.is_superuser %}
     <a href="{% url 'cursosadd' %}">Adicionar nova categoria</a>
     {% endif %}
 {% endblock content%}

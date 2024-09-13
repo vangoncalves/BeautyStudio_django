@@ -13,13 +13,15 @@ def arealogin(request):
         username = request.POST['username']
         senha = request.POST['senha']
         user = authenticate(request, username=username, password=senha)
+        
         if user is not None:
-            login(request, user)
-            return redirect('master.html')  #colocar a pagina que o user vai após login
+            login(request, user )
+            return redirect('index')  #colocar a pagina que o user vai após login
         else:
              context = {'error': 'Credenciais inválidas'}
              return render(request, 'users/arealogin.html', context)
     return render(request, 'users/arealogin.html')
+
 
 def areacadastro(request):
     if request.method == 'POST':
@@ -32,14 +34,16 @@ def areacadastro(request):
             return redirect('arealogin')  # Redireciona para a página de login
     else:
         form = UsuarioRegistrationForm()
-    return render(request, 'users/areacadastro.html', {'form': form})
+        context = {'form': form}
+    return render(request, 'users/areacadastro.html', context )
+
 
 def logout_view(request):
     """Faz logout do usuário"""
     logout(request)
     return HttpResponseRedirect(reverse('index')) # Redireciona para a página index após o logout
 
-@login_required
+
 def areacadastroadmin(request):
     if request.method == 'POST':
         form = SuperUserCreationForm(request.POST)
@@ -52,5 +56,5 @@ def areacadastroadmin(request):
             return redirect('arealogin')  # Redireciona para a área de login ou qualquer outra página
     else:
         form = SuperUserCreationForm()
-    
-    return render(request, 'users/areacadastroadmin.html', {'form': form})
+    context = {'form': form}
+    return render(request, 'users/areacadastroadmin.html', context)
