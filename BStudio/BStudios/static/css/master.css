@@ -1,119 +1,99 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-ul{
-    list-style: none;
-}
-a{
-    text-decoration: none;
-    color: #FFF9FA;
-}
-h1{
-    color: #2f0210;
-}
-h2{
-    color: #441B28;
-}
-header{
+
+header {
+    display: flex;
     background-color: #420c1d;
     width: 100%;
     text-align: center;
-    padding: 10px 20px;
-    position: fixed; 
-    top: 10px; 
-    z-index: 999; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    height: 20%;
-    
+    margin-top: 50%;
+    height: 100px; /* Ajuste a altura conforme necessário */
 }
-/*Controle do cabeçalho de todas as paginas*/
-.cabecalho
-{
+
+.cabecalho {
     display: flex;
     justify-content: space-between;
-    padding:10px 0 20px;
+    padding: 15px 0 25px;
     border-bottom: #FFF4E9 solid 1px;
-}
-/*CONTROLE DA LOGO em todas as páginas*/
-.logo li a img{
     width: 100%;
-    height: 80px;
-    margin-left: 50%;
-  
+}
 
-}
-.menu
-{
+.menu {
     display: flex;
-    align-items:center;
+    align-items: center;
 }
-.menu li a
-{
+
+.menu li {
+    list-style: none;
+}
+
+.menu li a {
     padding: 30px;
     text-align: center;
     transition: background .3s;
     margin-top: 18px;
 }
-.menu li a:hover
-{
+
+.menu li a:hover {
     background-color: #441B28;
     color: #FFF4E9;
 }
-.submenu
-{
+
+.submenu {
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    height: 24%;
+    background-color: #2f0210;
+    width: 100%;
 }
-/*submenu + dropdown*/
-.submenu ul
-{
+
+.submenu ul {
     gap: 20px;
     padding: 10px;
-    background-color: #2f0210;
+    display: flex;
+    list-style: none;
 }
-.submenu ul li
-{
-    display: inline;
+
+.submenu ul li {
     position: relative;
 }
-.submenu ul li a
-{
+
+.submenu ul li a {
     display: inline-block;
     padding: 10px;
     transition: background .3s;
 }
-.submenu li a:hover
-{
+
+.submenu li a:hover {
     background-color: #441B28;
     color: #FFF4E9;
 }
-.submenu ul ul
-{
+
+.submenu ul ul {
     display: none;
     position: absolute;
     width: 150px;
     left: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-.submenu ul li:hover ul
-{
+
+.submenu ul li:hover ul {
     display: block;
 }
-.submenu ul ul li a
-{
+
+.submenu ul ul li a {
     display: block;
 }
-footer 
-        {
-            background-color: #2f0210;
-            text-align: center;
-            padding-top: 40px;
-            color: #FFF9FA;
-            padding-bottom: 30px;
-            display:flex;
-        }
+
+footer{
+    background-color: #2f0210;
+    text-align: center;
+    padding-top: 40px;
+    color: #FFF9FA;
+    padding-bottom: 30px;
+    display:flex;
+}
