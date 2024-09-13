@@ -9,8 +9,6 @@
     --brancovinho: #f4dadb;
     --corhover: #eaa59f5b;
     --fontwhite: #ececec;
-
-
 }
 * {
     margin: 0;
@@ -112,9 +110,6 @@ header {
     left: 0;
 
 }
-
-
-
 .submenu ul ul li a {
     display: block;
 } 
@@ -133,14 +128,14 @@ footer{
 footer p{
     font-size: 12px;
     margin-top: -40px;
-    margin-left: 34rem;
+    margin-left: 20rem;
     justify-content: center;
 
 }
 .paranoia{
     font-size: 12px;
     margin-top: 1px;
-    margin-left: 31rem;
+    margin-left: 20rem;
     justify-content: center;
 
 }
