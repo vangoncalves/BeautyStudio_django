@@ -1,5 +1,17 @@
 /*Este CSS ele altera somente o cabeçalho e o rodapé*/
+:root{
+    --vinhoprinci: #420c1d;
+    --vinho: #6f233f;
+    --vinhoclaro: #a0445d;
+    --marromleve: #cb5c64;
+    --vinhobb: #e490ba;
+    --vinhclaro: #eaa59f;
+    --brancovinho: #f4dadb;
+    --corhover: #eaa59f5b;
+    --fontwhite: #ececec;
 
+
+}
 * {
     margin: 0;
     padding: 0;
@@ -7,14 +19,128 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+header {
+    display: flex;
+    background-color: var(--vinhoprinci);
+    width: 100%;
+    text-align: center;
+    margin-top:-1%;
+    height: 100px; /* Ajuste a altura conforme necessário */
+}
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0 25px;
+    border-bottom: #FFF4E9 solid 1px;
+
+}
+.logo li a img{
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+.menu {
+    display: flex;
+    margin-top: 20px;
+}
+.menu li {
+    list-style: none;
+    margin-top: 10px;
+    gap: -10px;
+}
+.menu li a {
+    padding: 12px 10px;
+    text-align: center;
+    transition: background .3s;
+    margin-left: 2rem;
+    color: #ececec;
+    border-radius: 10px; 
+    text-decoration: none;
+    margin-top: 155px;
+
+}
+
+.menu li a:hover {
+    background-color: #eaa59f5b;
+    border-radius: 10px; 
+    color: #f4dadb;
+}
+
+.submenu {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.submenu .acesso {
+    list-style: none; 
+    padding: 0; 
+}
+
+.submenu ul {
+    gap: 30px;
+    padding: 10px;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 42rem;
+    list-style: none;
+    
+}
+.submenu ul li {
+    position: relative;
+
+}
+
+.submenu ul li a {
+    display: inline-block;
+    padding: 10px;
+    transition: background .3s;
+    color: #ececec;
+    text-decoration: none;
+    border-radius: 10px; 
+}
+
+.submenu li a:hover {
+    background-color: #eaa59f5b;
+    border-radius: 10px; 
+    color: #f4dadb;
+}
+
+.submenu ul ul {
+    display: none;
+    position: absolute;
+    width: 150px;
+    left: 0;
+
+}
 
 
+
+.submenu ul ul li a {
+    display: block;
+} 
 
 footer{
-    background-color: #2f0210;
-    text-align: center;
-    padding-top: 40px;
+    margin-top: 20rem;
+    width: 100%;
+    height: 68px;
+    flex-direction: column; 
+    background-color: var(--vinhoprinci);
+    padding-top: 40px 40px;
     color: #FFF9FA;
-    padding-bottom: 30px;
     display:flex;
+    
+}
+footer p{
+    font-size: 12px;
+    margin-top: -40px;
+    margin-left: 34rem;
+    justify-content: center;
+
+}
+.paranoia{
+    font-size: 12px;
+    margin-top: 1px;
+    margin-left: 31rem;
+    justify-content: center;
+
 }

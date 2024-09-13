@@ -13,7 +13,7 @@ def arealogin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('index')  #colocar a pagina que o user vai após login
+            return redirect('master.html')  #colocar a pagina que o user vai após login
         else:
             return render(request, 'arealogin.html', {'error': 'Credenciais inválidas'})
     return render(request, 'arealogin.html')

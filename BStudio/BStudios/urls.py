@@ -22,7 +22,7 @@ urlpatterns = [
     path('delete_curso/<idCurso>', views.excluir_curso, name='excluir_curso'),
 
 
-    # Incluir as URLs do app 'users'
+    # Incluindo as URLs do app 'users'
     path('users/', include('users.urls')),
     path('login/', include('django.contrib.auth.urls')), 
 
