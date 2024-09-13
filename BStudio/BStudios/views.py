@@ -124,6 +124,7 @@ def excluir_curso(request, idCurso):
 
 @login_required
 def perfil(request):
+    user = request.user  # Obtém o usuário logado
     pedido = Pedido.objects.filter(fk_idUsuario=request.user)
     context={'pedido': pedido}
     return render(request, 'BStudios/perfil.html', context) 

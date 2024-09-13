@@ -1,7 +1,6 @@
 # BStudio/users/models.py
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 class UsuarioManager(BaseUserManager):
     def create_user(self, username, email, password=None, **extra_fields):
@@ -18,13 +17,14 @@ class UsuarioManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         return self.create_user(username, email, password, **extra_fields)
 
-class Usuario(AbstractBaseUser):
+class Usuario(AbstractBaseUser, PermissionsMixin):
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=15)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=30, unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
 
     objects = UsuarioManager()
 

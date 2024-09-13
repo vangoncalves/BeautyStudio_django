@@ -2,7 +2,14 @@
 
 {% block content %}
 
+<h2>Perfil do Usuário</h2>
+
 <p>Olá, {{user.nome}}</p>
+
+<p><strong>Nome:</strong> {{ user.nome }}</p>
+<p><strong>Telefone:</strong> {{ user.telefone }}</p>
+<p><strong>E-mail:</strong> {{ user.email }}</p>
+<p><strong>Usuário:</strong> {{ user.username }}</p>
 <h2>Minhas Compras</h2>
 
 <ul>

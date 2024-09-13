@@ -22,3 +22,32 @@ class UsuarioRegistrationForm(forms.ModelForm):
         confirm_password = cleaned_data.get("confirm_password")
         if password and confirm_password and password != confirm_password:
             self.add_error('confirm_password', 'As senhas não coincidem.')
+
+
+class SuperUserCreationForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Senha'}), label="Senha")
+    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirmar Senha'}), label="Confirmar Senha")
+
+    fields = ['nome', 'telefone', 'email', 'username']
+    widgets = {
+        'nome': forms.TextInput(attrs={'placeholder': 'Nome'}),
+        'telefone': forms.TextInput(attrs={'placeholder': 'Telefone'}),
+        'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
+        'username': forms.TextInput(attrs={'placeholder': 'Nome de usuário'}),
+        }
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data['password'])  # Define a senha
+        user.is_staff = True
+        user.is_superuser = True
+        if commit:
+            user.save()
+        return user
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get("password")
+        confirm_password = cleaned_data.get("confirm_password")
+        if password and confirm_password and password != confirm_password:
+            self.add_error('confirm_password', 'As senhas não coincidem.')

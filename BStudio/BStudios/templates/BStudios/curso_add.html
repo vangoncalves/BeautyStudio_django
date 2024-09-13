@@ -42,7 +42,7 @@
 <form action="{% url 'cursoadd' cursos.idCaCursos %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button name="submit">Agendar</button>
+    <button name="submit">Adicionar</button>
 </form>
 
 {% endblock content %}
