@@ -1,0 +1,26 @@
+/*
+
+
+
+
+
+.ser{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 300px;
+}
+.box{
+    border-radius: 20px;
+    background-color: #FFF4E9;
+    width: 290px;
+    height: 275px;
+}
+h1{
+    color: #2f0210;
+}
+.rodape{
+    gap: 10%;
+    justify-content: center;
+}

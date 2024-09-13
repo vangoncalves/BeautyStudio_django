@@ -1,36 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Dekko&family=Gruppo&display=swap');
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        
-/* CSS de todo o conteúdo do meio da pagina*/      
-        main 
-        {
-            background-color: #FFF9FA;
-            text-align: center;
-            padding: 30px
-        }
-       
-        .ser
-        {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            height: 300px;
-        }
-        .box
-        {
-            border-radius: 20px;
-            background-color: #FFF4E9;
-            width: 290px;
-            height: 275px;
-        }
-        h1
-        {
-            color: #2f0210;
-        }
-        .rodape
-        {
-            gap: 10%;
-            justify-content: center;
-        }
+/* Seção principal */
+main {
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 30%;
+    margin-left: -90%;
+}
+
+/* Imagem principal com texto sobreposto */
+.da {
+    position: relative;
+    margin-top: -10%;
+    margin-left: 25%;
+}
+.img-desktop{
+    margin-top: -37%;
+    margin-left: -45%;
+    display: flex;
+    width: 155.5%;/* vai sempre variar pra ajustar a img*/
+    height: 500px;
+    opacity: 60%;
+    position: relative;
+    z-index: 1; /* Imagem ficará no fundo */
+
+}
+.estetic{
+    background-color: #e91e63;
+    border-radius: 15px;
+    width: 60%;
+    height: 90px;
+    position: absolute; /* Coloca o texto sobre a imagem */
+    top: 50%; /* Centraliza verticalmente */
+    left: 40%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centralizar completamente */
+    z-index: 2; /* O texto fica acima da imagem */
+    color: white; /* Deixa o texto visível sobre a imagem */
+    text-align: center;
+}
+
+.botao {
+    padding: 10px 20px;
+    background-color: #ff4081;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.botao:hover {
+    background-color: #e91e63;
+}
+
+/* Seção de conteúdo */
+.conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.text {
+    width: 30%;
+}
+
+.text h1, .text h2 {
+    color: #333;
+}
+
+.text p {
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+/* Seção de cursos */
+.ser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-content2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.box {
+    width: 3%;
+    text-align: center;
+}
+
+.cur {
+    background-color: #f9f9f9;
+    width: 60%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.cur:hover {
+    transform: scale(1.05);
+}
+
+.cur h1 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.cur img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 50%;
+}
+
+.nav-auto2, .nav-manual2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.manual-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff4081;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.manual-btn:hover {
+    background-color: #e91e63;
+}
