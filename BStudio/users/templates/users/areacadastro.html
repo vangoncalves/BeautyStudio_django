@@ -2,25 +2,14 @@
 {% extends "BStudios/master.html" %}
 
 {% block content %}
-<br>
-<br>
-<br>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-    {% if form.errors %}
-        <p>Seu login e senha estão incorretos. Por favor, tente novamente! </p>
-    {% endif%}
 
     <form action="{% url 'areacadastro' %}" method="post">
         {% csrf_token %}
         {{form.as_p}}
         
         <button name="submit">Cadastrar</button>
-        <input type="hidden" name="text" value="{% url 'arealogin' %}"/>
+        <input type="hidden" name="next" value="{% url 'index' %}"/>
     </form>
 
 {% endblock content %}

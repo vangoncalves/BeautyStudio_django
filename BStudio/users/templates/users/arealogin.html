@@ -1,13 +1,7 @@
 {% extends "BStudios/master.html" %}
 
 {% block content %}
-
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-success">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-    
+   
 
     {% if form.errors %}
         <p>Seu login e senha estão incorretos. Por favor, tente novamente! </p>
@@ -15,11 +9,12 @@
 
     <form action="{% url 'arealogin' %}" method="post">
         {% csrf_token %}
-        {{form.as_p}}
+        <p>Username: <input type="text" name="username"></p>
+        <p>Senha: <input type="password" name="senha"></p>
 
 
         <button name="submit">Entrar</button>
-        <input type="hidden" name="text" value="{% url 'arealogin' %}"/>
+        <input type="hidden" name="text" value="{% url 'index' %}"/>
     </form>
 
 {% endblock content %}

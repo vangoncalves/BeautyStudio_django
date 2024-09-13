@@ -1,0 +1,15 @@
+{% extends "BStudios/master.html" %}
+
+{% block content %}
+
+<p>Olá, {{user.nome}}</p>
+<h2>Minhas Compras</h2>
+
+<ul>
+    {% for pedido in pedido %}
+        <li>{{ pedido.curso.nome }} - Comprado em {{ pedido.data }}</li>
+    {% empty %}
+        <li>Você ainda não comprou nenhum curso.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

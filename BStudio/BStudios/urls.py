@@ -12,7 +12,8 @@ urlpatterns = [
     path('edit_cursos/<edit_idCaCursos>', views.edit_cursos, name='edit_cursos'),
     path('delete_cursos/<idCaCursos>', views.excluir_cursos, name='excluir_cursos'),
 
-    path('agendamentos', views.agendamentos, name='agendamentos'),
+    path('perfil', views.perfil, name='perfil'),
+    path('curso/<curso_id>/comprar/', views.comprar_pedido, name='comprar_curso'),
 
     #Cursos, adicionar, editar e excluir
     path('cursos/<idCaCursos>/', views.curso, name='curso'),
