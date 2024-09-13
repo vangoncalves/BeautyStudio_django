@@ -1,5 +1,5 @@
 from django import forms
-from .models import CaCursos, Curso, Pedido
+from .models import CaCursos, Curso, Pedido, MetodoPagamento
 
 class CaCursosForm(forms.ModelForm):
     class Meta:
@@ -13,14 +13,10 @@ class CursoForm(forms.ModelForm):
         fields = ['nome', 'image', 'descricao', 'dataInicio', 'dataFim', 'hora_inicio', 'hora_final', 'dias', 'valor_cur', 'fk_idCaCursos', 'fk_idFuncionario' ]
         widgets = {'descricao':forms.Textarea(attrs={'cols':9})}
 
-'''class PedidoForm(forms.ModelForm):
-    class Meta:
-        model = Pedido
-        fields = ['fk_idCurso', 'fk_idCaCursos']
+class MetodoPagamentoForm(forms.Form):
+    metodo_pagamento = forms.ModelChoiceField(
+        queryset=MetodoPagamento.objects.all(),
+        empty_label="Escolha um método de pagamento",
+        widget=forms.Select
+    )
 
-    def __init__(self, *args, **kwargs):
-        user = kwargs.pop('user', None)
-        super().__init__(*args, **kwargs)
-        if user:
-            # Exibir apenas cursos disponíveis para o usuário
-            self.fields['curso'].queryset = Curso.objects.all()'''

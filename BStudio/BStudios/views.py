@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
-from .forms import CursoForm, CaCursosForm
+from .forms import CursoForm, CaCursosForm, MetodoPagamentoForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
@@ -132,15 +132,27 @@ def perfil(request):
 def comprar_pedido(request, idCurso):
     curso = Curso.objects.get(idCurso=idCurso)
     # Verificar se o usuário já comprou o curso
-    if Pedido.objects.filter(fk_idUsuario=request.user, curso=curso).exists():
-        return render(request, 'ja_comprou.html', {'curso': curso})
+    if Pedido.objects.filter(fk_idUsuario=request.user, fk_idCurso=curso).exists():
+        return render(request, 'BStudios/ja_comprou.html', {'curso': curso})
 
     if request.method == 'POST':
-        compra = Pedido(fk_idUsuario=request.user, curso=curso)
+        form = MetodoPagamentoForm(request.POST)
+        if form.is_valid():
+            metodo_pagamento = form.cleaned_data['metodo_pagamento']
+        
+        compra = Pedido(
+            fk_idCaCursos=curso.fk_idCaCursos,
+            fk_idUsuario=request.user,
+            fk_idCurso=curso,
+            # Você deve fornecer o campo `fk_idMetodoPagamento` também
+            fk_idMetodoPagamento=metodo_pagamento  # Ajuste conforme necessário para fornecer um valor válido
+        )
         compra.save()
         return redirect('perfil')
-    
-    return render(request, 'confirmar_compra.html', {'curso': curso})
+
+    form = MetodoPagamentoForm()
+    context = {'curso':curso, 'form':form}
+    return render(request, 'BStudios/confirmar_compra.html', context)
 
     """@login_required
 def agendamento(request,id):
@@ -163,6 +175,5 @@ def agendamento(request,id):
     }
 
     return render(request, 'agendamento.html', contexto)"""
-
 
 

@@ -18,5 +18,5 @@
             <p><a href="{% url 'excluir_curso' detalhe.idCurso%}">Adicionar novo curso</a></p>
         </li>
     </ul>
-    <a href="{% url 'comprar_cursos' %}">Comprar</a>
+    <a href="{% url 'comprar_curso' detalhe.idCurso%}">Comprar</a>
 {% endblock content %}

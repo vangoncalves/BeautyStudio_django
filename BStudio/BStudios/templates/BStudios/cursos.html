@@ -12,12 +12,16 @@
                 {% else %}
                     <p>Sem imagem disponível</p>
                 {% endif %}
-                <p><a href="{% url 'edit_cursos' cacurso.idCaCursos %}">Editar anotação</a></p>
-                <a href="{% url 'excluir_cursos' cacurso.idCaCursos %}">Adicionar nova categoria</a>
+                {% if user.is_authenticated %}
+                <p><a href="{% url 'edit_cursos' cacurso.idCaCursos %}">Editar categoria</a></p>
+                <p><a href="{% url 'excluir_cursos' cacurso.idCaCursos %}">Excluir categoria</a></p>
+                {% endif %}
             </li>
         {% empty %}
             <li>Não há cursos adicionados.</li>
         {% endfor %}
     </ul>
+    {% if user.is_authenticated %}
     <a href="{% url 'cursosadd' %}">Adicionar nova categoria</a>
+    {% endif %}
 {% endblock content%}
