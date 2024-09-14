@@ -26,11 +26,10 @@ header {
     height: 100px; /* Ajuste a altura conforme necessário */
 }
 .cabecalho {
+    width: 100;
     display: flex;
     justify-content: space-between;
     padding: 15px 0 25px;
-
-
 }
 
 .logo li a img{
@@ -40,28 +39,54 @@ header {
 
 .menu {
     display: flex;
-    margin-top: 20px;
+    margin-top: 15px;
+    gap: 20px; /* Adicionado para espaçamento entre itens */
+    align-items: center;
 }
+
 .menu li {
     list-style: none;
     margin-top: 10px;
-    gap: -10px;
 }
+
 .menu li a {
     padding: 12px 10px;
     text-align: center;
-    transition: background .3s;
+    transition: background 0.3s;
     margin-left: 2rem;
     color: #ececec;
-    border-radius: 10px; 
+    border-radius: 10px;
     text-decoration: none;
-    margin-top: 155px;
 }
 
 .menu li a:hover {
     background-color: #eaa59f5b;
-    border-radius: 10px; 
     color: #f4dadb;
+}
+
+.int {
+    width: 50%;
+    margin-left: -10%;
+    margin-top: -20%;
+}
+
+/* Botão "Entrar" */
+.btn-entrar {
+    display: flex;
+    align-items: center;
+    background-color: var(--vinhoclaro); 
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    text-decoration: none; 
+    transition: background-color 0.3s ease; 
+}
+.btn-entrar svg {
+    margin-right: 15px;
+}
+
+.btn-entrar:hover {
+    background-color: var(--marromleve); 
 }
 
 .submenu {
@@ -122,13 +147,13 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    width: 232.2%;
     height: 90px;
-    background-color: var(--vinhoprinci);
+    background-color: var(--vinho);
     padding: 20px;
     color: #FFF9FA;
     margin-top: 150%;
-    margin-left: -100%;
+    margin-left: -530%;
 }
 
 footer p {

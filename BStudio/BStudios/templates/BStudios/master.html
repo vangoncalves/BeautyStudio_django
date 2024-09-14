@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauty & Cursos</title>
     <link rel="stylesheet" href="{% static 'css/master.css' %}">
-    <link rel="shortcut icon" href="{% static 'media/template_2.png' %}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{% static 'img/logov.png' %}" type="image/x-icon"/>
 </head>
 <body>
       <header>
@@ -25,31 +25,33 @@
                 <ul class="acesso">
                     <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'cursos' %}">Cursos</a></li>
-                    
-                     <!--Precisa ser mudado para aparecer somente após o login-->
                 </ul>
             </div>
             <ul class="menu">
-              <li>
-                  {% if user.is_authenticated %}
-                    <a href="{% url 'perfil' %}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                        </svg>
-                    </a>Olá, {{ user.username }}
-                    <li>
-                        <a href="{% url 'logout' %}">Sair</a>
-                    </li>
-                  {% else %}
-                        <a href="{% url 'arealogin' %}"> 
+                <li>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'perfil' %}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                             </svg>
-                            Entrar
                         </a>
+                        Olá, {{ user.username }}
+                        <li>
+                            <a href="{% url 'logout' %}">Sair</a>
+                        </li>
+                    {% else %}
                         <li><a href="{% url 'areacadastro' %}">Cadastre-se</a></li>
-                  {% endif %}
-              </li>
+                        <li class="int">
+                            <a href="{% url 'arealogin' %}" class="btn-entrar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                </svg>
+                                Entrar
+                            </a>
+                        </li>
+                    {% endif %}
+                </li>
+            </ul>
           </ul>
         </div>
     {% block content %}
@@ -77,7 +79,7 @@
             </li>
         </ul>
         <p>Copyright © Beauty & Cursos | 2024</p>
-        <p class="paranoia">Vendas de Cursos e Serviço de Estética | Visite - nos</p>
+        <p class="paranoia">Vendas de Cursos e Serviço de Estética | Visite - Nos</p>
     </footer>
 </body>
 </html>
