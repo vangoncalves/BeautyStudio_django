@@ -1,4 +1,4 @@
-:root{
+:root {
     --vinhoprinci: #420c1d;
     --vinho: #6f233f;
     --vinhoclaro: #a0445d;
@@ -20,57 +20,55 @@ body {
 
 main {
     margin: 0 auto;
-    margin-top: 13%;
-    max-width: 1200px; 
-    padding: 0 20px; 
+    margin-top: 8%;
+    max-width: 1200px;
+    padding: 0 20px;
 }
-
-
 .img_a {
     display: flex;
-    margin-left: -82rem;
     align-items: center;
-    gap: 40px; 
-    flex-wrap: wrap; 
-    /*Corrigir margens que está causando muito conflito*/
+    gap: 150px; 
+    flex-wrap: wrap;
+    margin-bottom: 60px; 
 }
 
 .img_a img {
-    width: 25%; 
+    width: 40%; 
+    max-width: 400px; 
     height: auto;
-    border-radius: 30px 0px 30px 0px;
+    border-radius: 30px 0 30px 0;
     transition: transform 0.5s ease;
+    animation: slideUp 1s ease forwards; 
 }
 
 .img_a .content {
-    width: 60%; 
-    margin-left: 5%;
+    width: 70%; 
+    max-width: 600px; 
 }
 
 .img_a .textin {
-    font-size: 2.5rem; 
-    font-weight: ;
-    color: #ececec; 
-    margin-left: 0; 
+    font-size: 35px; 
+    color: var(--fontwhite);
+    margin-bottom: 20px; 
 }
-
 
 .img_a .textin strong {
     color: var(--marromleve); 
 }
+
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--vinhoclaro); 
+    background-color: var(--marromleve); 
     color: white;
-    border-radius: 5px;
+    border-radius: 25px;
     text-decoration: none;
     transition: background-color 0.3s ease;
-    margin-top: 30px; 
     font-size: 1.5rem;
 }
 .button:hover {
-    background-color: #f9a6a6; 
+    background-color: var(--brancovinho); 
+    color: black;
 }
 
 @keyframes slideUp {
@@ -83,7 +81,54 @@ main {
         opacity: 1;
     }
 }
+/*nova parteeeeeeeeeeeeeeeeeeee*/
+.intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background-color: #f4f4f4; 
+    border-bottom: 2px solid #e0e0e0;
+}
 
-.img_a img {
-    animation: slideUp 1s ease forwards; 
+.intro-text {
+    max-width: 50%;
+}
+
+.intro-text h1 {
+    font-size: 2.5rem;
+    color: var(--vinhoprinci); 
+}
+
+.intro-text h2 {
+    font-size: 1.8rem;
+    color: var(--vinhoclaro); 
+}
+
+.intro-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333; 
+}
+
+.intro-text .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--vinhoclaro); 
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.intro-text .button:hover {
+    background-color: var(--marromleve); 
+}
+
+.intro-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
