@@ -1,22 +1,32 @@
 {% extends "BStudios/master.html" %}
 
 {% block content %}
-   
-
-    {% if form.errors %}
-        <p style="color: red;">Seu login e senha estão incorretos. Por favor, tente novamente! </p>
-    {% endif%}
-
-    <form action="{% url 'arealogin' %}" method="post">
-        {% csrf_token %}
-        <p>Username: <input type="text" name="username"placeholder="Digite seu username" required></p>
-        <p>Senha: <input type="password" name="senha"  placeholder="Digite sua senha" required></p>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/arealogin.css' %}">
 
 
-        <button name="submit">Entrar</button>
-        <input type="hidden" name="text" value="{% url 'index' %}"/>
-        <p>Não possui uma conta?<a href="{% url 'areacadastro' %}"> Cadastre-se</a></p>
-    </form>
+<div class="login-container">
+    <div class="login-image">
+        <img src="{%static 'img/mlrgrande.png' %}" alt="Imagem de fundo, mulher deitada com pedras quentas nas costas.">
+    </div>
+
+    <div class="login-form">
+        {% if form.errors %}
+            <p class="error-msg">Seu login e senha estão incorretos. Por favor, tente novamente!</p>
+        {% endif %}
+
+        <form action="{% url 'arealogin' %}" method="post">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <p>Username: <input type="text" name="username" placeholder="Digite seu username" required></p>
+            <p>Senha: <input type="password" name="senha" placeholder="Digite sua senha" required></p>
+            <button name="submit">Entrar</button>
+            <input type="hidden" name="text" value="{% url 'index' %}"/>
+            <p class="cad">Não possui uma conta? <a href="{% url 'areacadastro' %}">Cadastre-se</a></p>
+        </form>
+    </div>
+</div>
+
 
 {% endblock content %}
 
