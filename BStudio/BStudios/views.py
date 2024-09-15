@@ -9,7 +9,19 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     """Página principal do Beauty Studio"""
-    return render(request, 'BStudios/index.html')
+
+    #Verifica se a mensagem de boas-vindas deve ser exibida
+    show_welcome = request.session.pop('show_welcome', False)
+    username = request.session.get('username', 'Usuario')
+
+    cursos = Curso.objects.all()
+
+    context = {
+        'show_welcome': show_welcome,
+        'username': username,
+        'cursos': cursos
+    }
+    return render(request, 'BStudios/index.html', context)
 
 
 
@@ -126,7 +138,12 @@ def excluir_curso(request, idCurso):
 def perfil(request):
     """Perfil do usuario"""
     user = request.user  # Obtém o usuário logado
-    pedido = Pedido.objects.filter(fk_idUsuario=request.user)
+
+    if  user.is_superuser:
+        pedido = Pedido.objects.all()
+    else:
+        pedido = Pedido.objects.filter(fk_idUsuario=request.user)
+
     context={'pedido': pedido}
     return render(request, 'BStudios/perfil.html', context) 
        

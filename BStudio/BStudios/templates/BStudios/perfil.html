@@ -10,13 +10,25 @@
 <p><strong>Telefone:</strong> {{ user.telefone }}</p>
 <p><strong>E-mail:</strong> {{ user.email }}</p>
 <p><strong>Usuário:</strong> {{ user.username }}</p>
+{% if request.user.is_superuser %}
+<h2>Compras</h2>
+{% else %}
 <h2>Minhas Compras</h2>
+{% endif %}
 
 <ul>
     {% for pedido in pedido %}
-        <li>{{ pedido.curso.nome }} - Comprado em {{ pedido.data }}</li>
+        {% if request.user.is_superuser %}
+        <li>{{ pedido.fk_idCurso.nome }} - Comprado em {{ pedido.data }} por {{pedido.fk_idUsuario.nome}}</li>  
+        {% else %}
+        <li>{{ pedido.fk_idCurso.nome }} - Comprado em {{ pedido.data }}</li>
+        {% endif %}
     {% empty %}
+        {% if request.user.is_superuser %}
+        <li>Nenhum curso foi comprado.</li>
+        {% else %}
         <li>Você ainda não comprou nenhum curso.</li>
+        {% endif %}
     {% endfor %}
 </ul>
 {% endblock content %}

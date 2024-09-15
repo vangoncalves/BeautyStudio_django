@@ -15,7 +15,10 @@ def arealogin(request):
         user = authenticate(request, username=username, password=senha)
         
         if user is not None:
-            login(request, user )
+            login(request, user)
+            if not request.session.get('show_welcome', False):
+                request.session['show_welcome'] = True  # Define para mostrar a mensagem
+                request.session['username'] = user.username  # Salva o nome do usuário na sessão
             return redirect('index')  #colocar a pagina que o user vai após login
         else:
              context = {'error': 'Credenciais inválidas'}
