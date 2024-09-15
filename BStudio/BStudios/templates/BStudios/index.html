@@ -4,84 +4,99 @@
     
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
-<script src="slide.js" defer></script>
-    <main>
-        <div class="img_a">
-            <img src="{% static 'img/esticombre.png' %}" alt="Imagem de uma mulher passando hidratante de pele.">
-            <div class="content">
-                <h2 class="textin">Ser Esteticista é inspirar Confiança e Autoestima, <strong>com momentos de Cuidado e Rejuvenescimento.</strong></h2>
-                <a href="" class="button">Realize seu curso agora</a>
+
+<script src="slide.js" defer></script> <!-- Conferir utilizade, caso contrário, excluir-->
+  <main>
+      <!--Seção um-->
+      <div class="img_a">
+          <div class="intro-text">
+              <h1>Bem-vindo ao Beauty Studio</h1>
+              <h2>Experimente a excelência em beleza e bem-estar</h2>
+              <p>Descubra nossos serviços premium em um ambiente sofisticado e acolhedor. Nossa missão é elevar sua beleza com os melhores profissionais e técnicas avançadas.</p>
+              <a href="{% url 'index' %}" class="button">Saiba Mais</a>
+          </div>
+          <img src="{% static 'img/esticombre.png' %}" alt="Imagem de uma mulher passando hidratante de pele.">
+      </div>
+      <!-- seção dois-->
+      <section class="intro">
+          <div class="content">
+              <h2 class="textin">Ser Esteticista é inspirar Confiança e Autoestima, <strong>com momentos de Cuidado e Rejuvenescimento.</strong></h2>
+              <a href="" class="button">Realize seu curso agora</a>
+          </div>
+          <div class="intro-image">
+              <img src="{% static 'img/peleb.png' %}" alt="Imagem do Beauty Studio"/>
+          </div>
+      </section>
+      <!-- seção tres-->
+      <h1 class="tt_serv">
+          Confira Nossos Serviços
+      </h1>
+      <div class="serv">
+          <div class="box1">
+            <img src="{% static 'img/estetic.jpg'%}" alt="Depilación Facial">
+            <div class="int_box1">
+              <h2 class="tt_box1">
+                Depilação Facial
+              </h2>
+              <p>
+                  Revitalize sua pele com nossa depilação facial, para um rosto mais suave e livre de pelos.
+              </p>
+            </div>
+          </div>
+          <div class="box2">
+            <img src="{% static 'img/micropig.png'%}" alt="Depilación Corporal">
+            <div class="int_box2">
+              <h2 class="tt_box2">
+                Microgulhamento
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, molestias!
+              </p>
+            </div>
+          </div>
+          <div class="box3">
+            <img src="{% static 'img/velgague.png'%}" alt="Depilación Facial">
+            <div class="int_box3">
+              <h2 class="tt_box3">
+                Hidratação Capilar
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, molestias!
+              </p>
+            </div>
+          </div>
+          <div class="box4">
+            <img src="{% static 'img/massage.png'%}" alt="Depilación Corporal">
+            <div class="int_box4">
+              <h2 class="tt_box4">
+                Massagem
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, molestias!
+              </p>
+            </div>
+          </div>
+      </div>
+      <!-- seção quatro-->
+      <div class="feedback-container">
+        <h2 class="feedback-title">Feedback</h2>
+        <div class="feedback">
+            <div class="feedback-item">
+                <img src="{%static 'img/cobaia.png' %}" alt="Foto do Cliente" class="feedback-img">
+                <div class="feedback-text">
+                    <p>
+                      Ótimo serviço, muito satisfeito com o resultado. A depilação foi rápida e a equipe é muito profissional!
+                    </p>
+                </div>
+            </div>
+            <div class="feedback-item">
+                <img src="{%static 'img/cobaia2.png' %}" alt="Foto do Cliente" class="feedback-img">
+                <div class="feedback-text">
+                    <p>Adorei o atendimento e a qualidade do serviço. A experiência foi excelente, recomendo a todos!</p>
+                </div>
             </div>
         </div>
-        <section class="intro">
-            <div class="intro-text">
-                <h1>Bem-vindo ao Beauty Studio</h1>
-                <h2>Experimente a excelência em beleza e bem-estar</h2>
-                <p>Descubra nossos serviços premium em um ambiente sofisticado e acolhedor. Nossa missão é elevar sua beleza com os melhores profissionais e técnicas avançadas.</p>
-                <a href="{% url 'index' %}" class="button">Saiba Mais</a>
-            </div>
-            <div class="intro-image">
-                <img src="{% static 'media/Captura de tela 2024-08-05 141150.png' %}" alt="Imagem do Beauty Studio"/>
-            </div>
-        </section>
-        
-
-       
-              
-
-
-
-        <!--Ir ajustando por partes-->
-
-
-        <!--antigo carrossel que agr é imagem-->
-        <!--conteudo sobre--
-        <div class="conteudo">
-            <div class="text">
-                <h1>Bem vindo(a) ao Beauty Studio</h1>
-                <h2>Serviços e Cursos melhores da região</h2>
-                <p>Somos apaixonados por proporcionar experiências transformadoras e inigualáveis em serviços de alta qualidade. Aqui, a excelência é a nossa marca registrada, e a satisfação dos clientes é a nossa missão incansável.</p>
-                <p> Em nosso salão, reunimos os melhores profissionais, dedicados a aprimorar a sua beleza e elevar a sua autoestima. Cada membro da nossa equipe é selecionado não apenas pelo talento excepcional, mas também pela paixão em superar expectativas.</p>
-                <p>Nós nos orgulhamos de oferecer um ambiente moderno e aconchegante, com um conceito de loft no térreo que exala sofisticação e contemporaneidade. Oferecemos uma ampla gama de serviços, desde cortes masculinos e femininos que refletem as últimas tendências até mechas e colorações que realçam a sua personalidade única. Se deseja uma transformação mais radical, nossos especialistas em megahair estão à disposição para criar looks deslumbrantes.</p>
-                <p>Além disso, somos especialistas em tratamentos capilares, como progressivas que proporcionam resultados duradouros e alongamento de cílios que realçam o olhar de maneira sublime. Não nos limitamos apenas aos cabelos, mas também cuidamos da sua pele com tratamentos personalizados que revelam a beleza natural.</p>
-                <p>E para complementar a experiência, contamos com as melhores manicures, que transformam as suas mãos em verdadeiras obras de arte. No nosso espaço, cada detalhe é cuidadosamente pensado para garantir que você se sinta mimado e revitalizado.</p>
-                <p>Junte-se a nós e permita-nos levar a sua jornada de beleza a novos patamares. No nosso salão, não entregamos apenas serviços, entregamos confiança, autoestima e a garantia de que você sairá sentindo-se radiante e satisfeito. Nosso espaço vai te conquistar já no primeiro olhar, pois aqui, a beleza é uma experiência completa.</p>
-            </div>
-            <div class="image">
-                <img src="{% static 'media/Captura de tela 2024-08-05 141150.png' %}" alt=""/>
-            </div>
-        </div>
-        <!--conteudo sobre-->
-        <!--cursos, NÃO MEXER AINDA--
-        <br><h1>Últimos Cursos</h1><br>
-        <section class="ser">
-            <div class="slider-content2">
-                <input type="radio" name="btn-radio" id="radio3">
-                <input type="radio" name="btn-radio" id="radio4">
-            <div class="box">
-                <div class="cur">
-                    <a href=""><img src="" width= "200px" height="200px"></a><a href=""><h1>Micropgimentação de Sobrancelhas</h1></a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="cur"><a href=""><img src="" width= "200px" height="200px"></a><a href=""><h1>Fibra de Vidro</h1></a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="cur">
-                    <a href=""><img src="" width= "200px" height="200px"></a><a href=""><h1>Massagem</h1></a>
-                </div>
-            </div>
-                <div class="nav-auto2">
-                    <div class="auto-btn3"></div>
-                    <div class="auto-btn4"></div>
-                </div>
-                <div class="nav-manual2">
-                    <label for="radio3" class="manual-btn"></label>
-                    <label for="radio4" class="manual-btn"></label>
-                </div>
-            </div>
-        </section>
-    </main>-->
+    </div>
+  </main>
 
 {% endblock %}

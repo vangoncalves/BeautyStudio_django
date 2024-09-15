@@ -15,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--vinhoprinci);
+    background-color: var(--vinhoprinci); /* pensando em remover*/
 }
 
 main {
@@ -24,53 +24,247 @@ main {
     max-width: 1200px;
     padding: 0 20px;
 }
+
+/* seção ummm*/
 .img_a {
     display: flex;
+    flex-direction: row; 
     align-items: center;
-    gap: 150px; 
+    gap: 50px; 
     flex-wrap: wrap;
     margin-bottom: 60px; 
 }
 
 .img_a img {
+    order: -1; 
     width: 40%; 
     max-width: 400px; 
     height: auto;
     border-radius: 30px 0 30px 0;
     transition: transform 0.5s ease;
-    animation: slideUp 1s ease forwards; 
+    animation: slideUp 3s ease forwards; 
 }
 
-.img_a .content {
-    width: 70%; 
-    max-width: 600px; 
+.img_a .intro-text {
+    width: 60%; 
 }
 
-.img_a .textin {
-    font-size: 35px; 
-    color: var(--fontwhite);
-    margin-bottom: 20px; 
+.img_a .intro-text h1 {
+    font-size: 2.3rem;
+    color: var(--fontwhite); 
 }
 
-.img_a .textin strong {
+.img_a .intro-text h2 {
+    font-size: 1.4rem;
     color: var(--marromleve); 
 }
 
-.button {
+.img_a .intro-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--fontwhite); 
+}
+
+.img_a .intro-text .button {
     display: inline-block;
+    width: 30%;
     padding: 10px 20px;
-    background-color: var(--marromleve); 
+    background-color: var(--vinhoclaro); 
     color: white;
     border-radius: 25px;
+    margin-top: 30px;
     text-decoration: none;
     transition: background-color 0.3s ease;
     font-size: 1.5rem;
 }
-.button:hover {
+
+.img_a .intro-text .button:hover {
     background-color: var(--brancovinho); 
     color: black;
 }
 
+/* seção doiiss*/
+.intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    border-radius: 15px; 
+    border-bottom: 2px solid #e0e0e0;
+    margin-top: 18%; 
+}
+
+.intro .content {
+    max-width: 60%;
+}
+
+.intro .content h2 {
+    font-size: 2rem;
+    color: var(--vinhoprinci); 
+}
+
+.intro .content h2 strong {
+    color: var(--marromleve); 
+}
+
+.intro .content .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--vinhoclaro); 
+    color: white;
+    border-radius: 15px;
+    margin-top: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.intro .content .button:hover {
+    background-color: var(--brancovinho); 
+    color: black;
+}
+
+.intro .intro-image img {
+    max-width: 100%;
+    border-radius: 80px 0px 80px 0px;
+    box-shadow: 0 4px 8px rgba(175, 94, 94, 0.2);
+    animation: slideUp 5s ease forwards; 
+}
+
+/* seção três */
+.tt_serv{
+    margin-left: -55%;
+    font-size: 2.2rem;
+    color: #e0e0e0;
+    margin-top: 18%;
+}
+.serv {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 40px; 
+    margin: auto; 
+    margin-top: 5%;
+    max-width: 1200px;
+    padding: 0 20px; 
+    position: relative; 
+    animation: slideUp 12s ease forwards; 
+}
+
+.box1, .box2, .box3, .box4 {
+    background-color: #f3f4f6; 
+    padding: 20px; 
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    position: relative; 
+}
+
+.box1::before,
+.box2::before, 
+.box3::before,
+.box4::before{
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    border-radius: 2px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: var(--vinho); 
+    transition: bottom 0.3s ease;
+}
+
+.box1:hover::before,
+.box2:hover::before, 
+.box3:hover::before,
+.box4:hover::before{
+    bottom: 0; 
+}
+
+.box1:hover, .box2:hover, .box3:hover, .box4:hover{
+    background-color: #d499a9; 
+    
+}
+
+.box1 img, .box2 img, .box3 img, .box4 img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 10px 0px 10px 0px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.box1 img:hover,
+.box2 img:hover, 
+.box3 img:hover,
+.box4 img:hover{
+    transform: scale(1.05);
+}
+
+.int_box1, .int_box2, .int_box3, .int_box4 {
+    margin-top: 10px; 
+    font-size: 15px;
+}
+
+.tt_box1, .tt_box2, .tt_box3, .tt_box4 {
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    color: black; 
+    margin-bottom: 15px; 
+}
+/*seção 04 - feedbackkkk*/
+
+
+.feedback-container {
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 15%;
+    padding: 40px;
+    color: white;
+    animation: slideUp 16s ease forwards;     
+
+}
+
+.feedback-title {
+    font-size: 2.2rem;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.feedback {
+    display: flex;
+    gap: 20px;
+}
+
+.feedback-item {
+    flex: 1;
+    background-color:  #cf95dd59;
+    margin-top: 3%;
+    border-radius:  0 50px 0 50px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.feedback-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+.feedback-text {
+    color: white;
+}
+
+.feedback-text p {
+    margin: 0;
+}
+/* Animação */
 @keyframes slideUp {
     0% {
         transform: translateY(100px);
@@ -80,55 +274,4 @@ main {
         transform: translateY(0);
         opacity: 1;
     }
-}
-/*nova parteeeeeeeeeeeeeeeeeeee*/
-.intro {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 50px 20px;
-    background-color: #f4f4f4; 
-    border-bottom: 2px solid #e0e0e0;
-}
-
-.intro-text {
-    max-width: 50%;
-}
-
-.intro-text h1 {
-    font-size: 2.5rem;
-    color: var(--vinhoprinci); 
-}
-
-.intro-text h2 {
-    font-size: 1.8rem;
-    color: var(--vinhoclaro); 
-}
-
-.intro-text p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333; 
-}
-
-.intro-text .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--vinhoclaro); 
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-}
-
-.intro-text .button:hover {
-    background-color: var(--marromleve); 
-}
-
-.intro-image img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
