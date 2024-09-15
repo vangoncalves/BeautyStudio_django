@@ -7,12 +7,12 @@
 
 <div class="login-container">
     <div class="login-image">
-        <img src="{%static 'img/mlrgrande.png' %}" alt="Imagem de fundo, mulher deitada com pedras quentas nas costas.">
+        <img src="{%static 'img/mlrgrande.png' %}" alt="Imagem de fundo, mulher deitada com pedras quentes nas costas.">
     </div>
 
     <div class="login-form">
-        {% if form.errors %}
-            <p class="error-msg">Seu login e senha estão incorretos. Por favor, tente novamente!</p>
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
         {% endif %}
 
         <form action="{% url 'arealogin' %}" method="post">

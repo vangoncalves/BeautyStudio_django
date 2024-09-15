@@ -33,11 +33,7 @@
       <div class="serv">
         {% for curso in cursos %}
           <div class="box1">
-<<<<<<< HEAD
-            <img src="{% static 'img/estetic.jpg'%}" alt="Foto do card da depilação facial">
-=======
             <img src="{{ curso.image.url}}" alt="{{ curso.nome}}">
->>>>>>> 4a218eb5889ae4bb89d4ece8f3379397a7577160
             <div class="int_box1">
               <h2 class="tt_box1">
                 {{ curso.nome }}
@@ -48,44 +44,7 @@
               <a href="{% url 'detalhes' curso.idCurso %}">Saiba mais</a>
             </div>
           </div>
-<<<<<<< HEAD
-          <div class="box2">
-            <img src="{% static 'img/micropig.png'%}" alt=" Foto do card de Microgulhamento">
-            <div class="int_box2">
-              <h2 class="tt_box2">
-                Microgulhamento
-              </h2>
-              <p>
-                Aprenda técnicas de microagulhamento e ofereça tratamentos que renovam e rejuvenescem a pele!
-              </p>
-            </div>
-          </div>
-          <div class="box3">
-            <img src="{% static 'img/velgague.png'%}" alt="foto do card da hidratação capilar">
-            <div class="int_box3">
-              <h2 class="tt_box3">
-                Hidratação Capilar
-              </h2>
-              <p>
-                Domine as técnicas de hidratação capilar e ofereça cabelos saudáveis e brilhantes!
-              </p>
-            </div>
-          </div>
-          <div class="box4">
-            <img src="{% static 'img/massage.png'%}" alt="foto do card, sobre massagem">
-            <div class="int_box4">
-              <h2 class="tt_box4">
-                Massagem
-              </h2>
-              <p>
-                Aprenda técnicas de massagem e proporcione relaxamento e bem-estar aos seus clientes!
-              </p>
-            </div>
-          </div>
-      </div>
-=======
           {% endfor %}
->>>>>>> 4a218eb5889ae4bb89d4ece8f3379397a7577160
       <!-- seção quatro-->
       <div class="feedback-container">
         <h2 class="feedback-title">Feedback</h2>
