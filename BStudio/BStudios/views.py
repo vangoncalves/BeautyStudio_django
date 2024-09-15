@@ -9,7 +9,18 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     """Página principal do Beauty Studio"""
-    return render(request, 'BStudios/index.html')
+    # Verifica se a mensagem de boas-vindas deve ser exibida
+    show_welcome = request.session.pop('show_welcome', False)
+    username = request.session.get('username', 'Usuario')
+
+    cursos = Curso.objects.all()  # Busca todos os cursos do banco de dados
+
+    context = {
+        'show_welcome': show_welcome,
+        'username': username,
+        'cursos': cursos
+    }
+    return render(request, 'BStudios/index.html', context)
 
 
 

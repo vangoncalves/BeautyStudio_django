@@ -5,7 +5,6 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-<script src="slide.js" defer></script> <!-- Conferir utilizade, caso contrário, excluir-->
   <main>
       <!--Seção um-->
       <div class="img_a">
@@ -21,7 +20,7 @@
       <section class="intro">
           <div class="content">
               <h2 class="textin">Ser Esteticista é inspirar Confiança e Autoestima, <strong>com momentos de Cuidado e Rejuvenescimento.</strong></h2>
-              <a href="" class="button">Realize seu curso agora</a>
+              <a href="{% url 'cursos' %}" class="button">Realize seu curso agora</a>
           </div>
           <div class="intro-image">
               <img src="{% static 'img/peleb.png' %}" alt="Imagem do Beauty Studio"/>
@@ -29,54 +28,23 @@
       </section>
       <!-- seção tres-->
       <h1 class="tt_serv">
-          Confira Nossos Serviços
+          Confira Nossos Cursos
       </h1>
       <div class="serv">
+        {% for curso in cursos %}
           <div class="box1">
-            <img src="{% static 'img/estetic.jpg'%}" alt="Depilación Facial">
+            <img src="{{ curso.image.url}}" alt="{{ curso.nome}}">
             <div class="int_box1">
               <h2 class="tt_box1">
-                Depilação Facial
+                {{ curso.nome }}
               </h2>
               <p>
-                  Revitalize sua pele com nossa depilação facial, para um rosto mais suave e livre de pelos.
+                  {{curso.descricao}}
               </p>
+              <a href="{% url 'detalhes' curso.idCurso %}">Saiba mais</a>
             </div>
           </div>
-          <div class="box2">
-            <img src="{% static 'img/micropig.png'%}" alt="Depilación Corporal">
-            <div class="int_box2">
-              <h2 class="tt_box2">
-                Microgulhamento
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, molestias!
-              </p>
-            </div>
-          </div>
-          <div class="box3">
-            <img src="{% static 'img/velgague.png'%}" alt="Depilación Facial">
-            <div class="int_box3">
-              <h2 class="tt_box3">
-                Hidratação Capilar
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, molestias!
-              </p>
-            </div>
-          </div>
-          <div class="box4">
-            <img src="{% static 'img/massage.png'%}" alt="Depilación Corporal">
-            <div class="int_box4">
-              <h2 class="tt_box4">
-                Massagem
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, molestias!
-              </p>
-            </div>
-          </div>
-      </div>
+          {% endfor %}
       <!-- seção quatro-->
       <div class="feedback-container">
         <h2 class="feedback-title">Feedback</h2>
