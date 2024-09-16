@@ -15,70 +15,109 @@ body{
     background-color: var(--vinhoprinci);
 }
 
+
 .cadastro-container2 {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin: 20px auto;
-    margin-top: 5%;
+    margin-bottom: 20px;
+    margin-top: 2%;
     max-width: 1250px;
-    padding: 20px;
-    gap: 80px;
+    padding: 50px;
+    gap: 180px;
+    height: 700px;
     background-color: var(--vinho); 
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
 }
+form {
+    width: 100%;
+}
 
 .cadastro-form2 {
-    width: 50%;
-    padding: 20px 40px;
+    width: 40%;
+    padding: 20px 30px;
     background-color: var(--vinhoclaro);
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    min-height: 450px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
-.cadastro-form2 h1{
-    margin: 15px;
-    margin-top: -6rem;
+
+.cadastro-form2 h1 {
+    margin: 15px 0;
     font-weight: bold;
-    color: #f4dadb;
-    margin-bottom: 30px;
+    text-align: center; 
+    width: 100%;
+    color: var(--brancovinho);
+    font-size: 20px;
 }
 
-
-.cad-imguser{
-    margin-left: 20px;
-    width: 40%; 
-    text-align: center;    
+.cad-imguser {
+    width: 40%;
+    text-align: center;
 }
-
 
 .cad-imguser img {
-    max-width: 100%; 
+    max-width: 100%;
     height: auto;
-    border-radius: 30px 0px 30px 0px;
+    margin-left: 15%;
+    border-radius: 30px 0 30px 0;
 }
 
+.form-group {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--brancovinho);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid var(--brancovinho);
+    background-color: transparent;
+    color: var(--brancovinho);
+    font-size: 16px;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: var(--brancovinho);
+    opacity: 0.2;
+}
+
+.form-group input:focus {
+    border-bottom: 2px solid var(--vinhclaro);
+}
 
 button {
     margin-top: 20px;
     background-color: var(--vinho);
     border: none;
     padding: 12px 35px;
-    color: #f4dadb;
+    color: var(--brancovinho);
     font-size: 16px;
-    width: 90%;
+    width: 50%;
     height: 50px;
-    font-size: 20px;
     border-radius: 20px;
+    align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
     background-color: var(--marromleve);
+    color: var(--brancovinho);
 }
