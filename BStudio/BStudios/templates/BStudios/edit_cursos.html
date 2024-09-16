@@ -4,11 +4,12 @@
 
 <p><a href="{% url 'cursos' %}">{{ edit.nome }}</a></p>
 
-<p>Editar curso:</p>
+<p>Editar categoria:</p>
 
 <form action="{% url 'edit_cursos' edit.idCaCursos %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    <p>Nome:<input type="text" name="nome" placeholder="Digite seu nome" required></p>
+    <p>Imagem: <input type="file" name="image" placeholder="Adicione uma imagem" required></p>
     <button type="submit">Salvar</button>
 </form>
 

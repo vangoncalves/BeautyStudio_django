@@ -41,7 +41,7 @@ def cursosadd(request):
             form.save()
             return HttpResponseRedirect(reverse('cursos'))
         
-    context = {'form':form}
+    context = {'form':form }
     return render(request, 'BStudios/cursos_add.html', context)
 
 def edit_cursos(request, edit_idCaCursos):
@@ -57,7 +57,7 @@ def edit_cursos(request, edit_idCaCursos):
             form.save()
             return HttpResponseRedirect(reverse('cursos'))
     
-    context ={'edit':edit, 'form':form}
+    context ={'edit':edit, 'form':form }
     return render(request, 'BStudios/edit_cursos.html', context)
 
 def excluir_cursos(request, idCaCursos):
@@ -82,6 +82,8 @@ def curso(request, idCaCursos):
 
 def cursoadd(request, idCaCursos):
     """Adiciona um novo curso."""
+    categorias = CaCursos.objects.all()
+    funcionarios = Funcionario.objects.all()
     cursos = CaCursos.objects.get(idCaCursos=idCaCursos)
 
     if request.method != 'POST':
@@ -94,11 +96,13 @@ def cursoadd(request, idCaCursos):
             cursoadd.save()
             return HttpResponseRedirect(reverse('curso', args=[idCaCursos]))
         
-    context = {'cursos':cursos,'form':form}
+    context = {'cursos':cursos,'form':form, 'categorias':categorias, 'funcionarios':funcionarios}
     return render(request, 'BStudios/curso_add.html', context)
 
 def edit_curso(request, idCurso):
     """Edita um curso de uma determinada categoria existente"""
+    categorias = CaCursos.objects.all()
+    funcionarios = Funcionario.objects.all()
     edit = Curso.objects.get(idCurso=idCurso)
     curso = Curso.fk_idCaCursos
 
@@ -111,7 +115,7 @@ def edit_curso(request, idCurso):
             form.save()
             return HttpResponseRedirect(reverse('detalhes', args=[edit.idCurso]))
     
-    context = {'edit': edit, 'curso': curso, 'form': form}
+    context = {'edit': edit, 'curso': curso, 'form': form, 'categorias':categorias, 'funcionarios':funcionarios}
 
     return render(request, 'BStudios/edit_curso.html', context)
 
