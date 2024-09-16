@@ -4,29 +4,47 @@
 {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/areacadastro.css' %}">
-
 <div class="cadastro-container">
     <div class="cad-img">
-        <img src="{% static 'img/masc.png' %}" width="85%" hei   alt="Imagem lateral de uma mulher passando máscara facial">
+        <img src="{% static 'img/masc.png' %}" width="85%" alt="Imagem lateral de uma mulher passando máscara facial">
     </div>
     <div class="cadastro-form">
         <h1>CADASTRE-SE</h1>
-         {% if error %}
+        {% if error %}
             <p class="error-msg">{{ error }}</p>
         {% endif %}
         <form action="{% url 'areacadastro' %}" method="post">
             {% csrf_token %}
-            <p>Nome: <input type="text" name="nome" placeholder="Digite seu nome" required></p>
-            <p>Telefone: <input type="text" name="telefone" placeholder="Digite seu telefone" required></p>
-            <p>Email: <input type="email" name="email" placeholder="Digite seu email" required></p>
-            <p>Username: <input type="text" name="username" placeholder="Digite seu username" required></p>
-            <p>Senha: <input type="password" name="password" placeholder="Digite sua senha" required></p>
-            <p>Confirme sua senha: <input type="password" name="confirm_password" placeholder="Confirme sua senha" required></p>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirme sua senha:</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme sua senha" required>
+            </div>
             <button name="submit">Cadastrar</button>
             <input type="hidden" name="next" value="{% url 'index' %}"/>
         </form>
     </div>
 </div>
+
 {% block footer %}
 <!-- Deixa vazio para não exibir o rodapé -->
 {% endblock footer %}

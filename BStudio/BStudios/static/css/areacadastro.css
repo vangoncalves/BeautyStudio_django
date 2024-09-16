@@ -1,3 +1,5 @@
+/*organiza as areas de cadastro*/
+
 :root {
     --vinhoprinci: #420c1d;
     --vinho: #6f233f;
@@ -12,42 +14,43 @@
 
 body {
     background-color: var(--vinhoprinci);
-    font-family: Arial, sans-serif; /* Adiciona uma fonte mais amigável */
+    font-family: Arial, sans-serif;
 }
-
 .cadastro-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 20px auto;
-    margin-top: 5%;
+    margin-bottom: 20px;
+    margin-top: 2%;
     max-width: 1250px;
-    padding: 20px;
-    gap: 80px;
+    padding: 30px;
+    gap: 40px;
     background-color: var(--vinho); 
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-    position: relative;
 }
 
 .cadastro-form {
-    width: 50%;
+    width: 40%;
     padding: 20px 40px;
     background-color: var(--vinhoclaro);
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    min-height: 450px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: flex-start; /* Alinha os itens à esquerda */
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .cadastro-form h1 {
     margin: 15px 0;
     font-weight: bold;
+    text-align: center; 
+    width: 100%; 
     color: var(--brancovinho);
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .cad-img {
@@ -67,22 +70,36 @@ form {
 
 .form-group {
     width: 100%;
-    margin-bottom: 20px; /* Espaçamento entre os campos */
+    margin-bottom: 10px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     color: var(--brancovinho);
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold; 
+    text-align: left;
 }
 
 .form-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--vinhoclaro);
-    border-radius: 5px;
+    border: none;
+    border-bottom: 2px solid var(--brancovinho);
+    background-color: transparent;
+    color: var(--brancovinho);
     font-size: 16px;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: var(--brancovinho);
+    opacity: 0.6; 
+}
+
+.form-group input:focus {
+    border-bottom: 2px solid var(--vinhclaro);
 }
 
 button {
