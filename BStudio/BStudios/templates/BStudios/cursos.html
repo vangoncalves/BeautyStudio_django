@@ -8,7 +8,6 @@
 {% endif %}
 
 <link rel="stylesheet" href="{% static 'css/cursos.css' %}">
-<<<<<<< HEAD
 
 <h1>CONFIRA NOSSOS CURSOS</h1>
 <div class="cursos-container">
@@ -35,28 +34,4 @@
 
 
 
-=======
-<h2>Categorias</h2>
-    <ul>
-        {% for cacurso in cacursos %}
-            <li>
-                <a href="{% url 'curso' cacurso.idCaCursos %}">{{ cacurso }}</a>
-                {% if cacurso.image %}
-                    <img src="{{ cacurso.image.url }}" alt="{{ cacurso.nome }}" style="max-width: 200px; height: auto;">
-                {% else %}
-                    <p>Sem imagem disponível</p>
-                {% endif %}
-                {% if request.user.is_superuser %}
-                <p><a href="{% url 'edit_cursos' cacurso.idCaCursos %}">Editar categoria</a></p>
-                <p><a href="{% url 'excluir_cursos' cacurso.idCaCursos %}">Excluir categoria</a></p>
-                {% endif %}
-            </li>
-        {% empty %}
-            <li>Não há cursos adicionados.</li>
-        {% endfor %}
-    </ul>
-    {% if request.user.is_superuser %}
-    <a href="{% url 'cursosadd' %}">Adicionar nova categoria</a>
-    {% endif %}
->>>>>>> 456a7f4eb576d66e7ae166b6e44ad40d2b8926e3
 {% endblock content%}
