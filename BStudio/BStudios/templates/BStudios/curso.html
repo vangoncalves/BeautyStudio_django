@@ -1,13 +1,14 @@
 {% extends "BStudios/master.html" %}
-
+{% load static %}
 {% block content %}
-
-    <p>Categoria: {{ curso }}</p>
-
-    <p>Cursos:</p>
-    <ul>
+<link rel="stylesheet" href="{% static 'css/cursos.css' %}">
+{% if request.user.is_superuser %}
+        <a class="add-curso-btn" href="{% url 'cursoadd' curso.idCaCursos%}">Adicionar novo curso</a>
+    {% endif %}
+    <h1>CONFIRA NOSSOS CURSOS - {{ curso }}</h1>
+    <div class="cursos-container">
         {% for curso in cursos %}
-        <li>
+        <div class="curso-card">
             <a href="{% url 'detalhes' curso.idCurso %}">{{ curso.nome}}</a>
 
             {% if curso.image %}
@@ -16,7 +17,7 @@
 
             <p>{{ curso.descricao | linebreaks}}</p>
             
-        </li>
+        </div>
 
         {% empty %}
         <li>
@@ -24,11 +25,8 @@
         </li>
 
         {% endfor %}
-    </ul>
+    </div>
 
-    {% if request.user.is_superuser %}
-    <p><a href="{% url 'cursoadd' curso.idCaCursos%}">Adicionar novo curso</a></p>
-    {% endif %}
     
     
 {% endblock content %}

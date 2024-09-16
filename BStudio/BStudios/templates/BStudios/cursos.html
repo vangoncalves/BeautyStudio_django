@@ -2,14 +2,14 @@
 {% load static %} 
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cursos.css' %}">
 
 {% if request.user.is_superuser %}
     <a class="add-curso-btn" href="{% url 'cursosadd' %}">Adicionar nova categoria</a>
 {% endif %}
 
-<link rel="stylesheet" href="{% static 'css/cursos.css' %}">
 
-<h1>CONFIRA NOSSOS CURSOS</h1>
+<h1>CATEGORIAS:</h1>
 <div class="cursos-container">
     {% for cacurso in cacursos %}
     <div class="curso-card">
