@@ -16,7 +16,6 @@
         <a href="{% url 'curso' cacurso.idCaCursos %}">{{ cacurso }}</a>
         {% if cacurso.image %}
             <img src="{{ cacurso.image.url }}" width="100%" height="90px" alt="{{ cacurso.nome }}">
-            <p>Aprenda técnicas de microagulhamento e ofereça tratamentos que renovam e rejuvenescem a pele!</p>
         {% else %}
             <p>Sem imagem disponível</p>
         {% endif %}

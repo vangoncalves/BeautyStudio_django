@@ -8,30 +8,38 @@
 
 <form action="{% url 'cursoadd' cursos.idCaCursos %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <p>Nome:<input type="text" name="nome" placeholder="Digite nome do curso" required></p>
-    <p>Imagem: <input type="file" name="image" placeholder="Adicione uma imagem sobre o curso" required></p>
-    <p>Descrição:<input type="text" name="descricao" placeholder="Digite uma descrição do curso" required></p>
-    <p>Início:<input type="date" name="dataInicio" required></p>
-    <p>Fim:<input type="date" name="dataFim" required></p>
-    <p>De:<input type="time" name="hora_inicio" required></p>
-    <p>Até:<input type="time" name="hora_final" required></p>
-    <p>Dias:<input type="text" name="dias" placeholder="Digite os dias de curso" required></p>
-    <p>Valor:<input type="number" step="0.01" name="valor_cur" placeholder="Digite seu nome" required></p>
+    <p>Nome:<input type="text" name="nome" value="{{ edit.nome }}" placeholder="Digite nome do curso" required></p>
+    <p>Imagem: <input type="file" name="image" placeholder="Adicione uma imagem sobre o curso"></p>
+    <p>Descrição:<input type="text" name="descricao" value="{{ edit.descricao }}" placeholder="Digite uma descrição do curso" required></p>
+    <p>Início:<input type="date" name="dataInicio" value="{{ edit.dataInicio }}" required></p>
+    <p>Fim:<input type="date" name="dataFim" value="{{ edit.dataFim }}" required></p>
+    <p>De:<input type="time" name="hora_inicio" value="{{ edit.hora_inicio }}" required></p>
+    <p>Até:<input type="time" name="hora_final" value="{{ edit.hora_final }}" required></p>
+    <p>Dias:<input type="text" name="dias" value="{{ edit.dias }}" placeholder="Digite os dias de curso" required></p>
+    <p>Valor:<input type="number" step="0.01" name="valor_cur" value="{{ edit.valor_cur }}" placeholder="Digite o valor do curso" required></p>
+
     <p>Categorias:
         <select name="fk_idCaCursos" required>
+            <option value="" disabled>Selecione uma categoria</option>
             {% for categoria in categorias %}
-            <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
+            <option value="{{ categoria.idCaCursos }}">
+                {{ categoria.nome }}
+            </option>
             {% endfor %}
         </select>
     </p>
-    <p>Funcionarios:
-        <select name="fk_idFuncionario" required>
-            {% for funcionario in funcionarios %}
-            <option value="{{ funcionario.id }}">{{ funcionario.nome }}</option>
-            {% endfor %}
-        </select>
-    </p>
-    <button name="submit">Adicionar</button>
-</form>
 
+    <p>Funcionários:
+        <select name="fk_idFuncionario" required>
+            <option value="" disabled>Selecione um funcionário</option>
+            {% for funcionario in funcionarios %}
+            <option value="{{ funcionario.idFuncionario }}">
+                {{ funcionario.nome }}
+            </option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <button name="submit">Salvar</button>
+</form>
 {% endblock content %}

@@ -3,13 +3,12 @@
 {% block content %}
 
 <h2>Perfil do Usuário</h2>
-
 <p>Olá, {{user.username}}</p>
-
 <p><strong>Nome:</strong> {{ user.nome }}</p>
 <p><strong>Telefone:</strong> {{ user.telefone }}</p>
 <p><strong>E-mail:</strong> {{ user.email }}</p>
 <p><strong>Usuário:</strong> {{ user.username }}</p>
+
 {% if request.user.is_superuser %}
 <h2>Compras</h2>
 {% else %}
@@ -29,6 +28,19 @@
         {% else %}
         <li>Você ainda não comprou nenhum curso.</li>
         {% endif %}
+    {% endfor %}
+</ul>
+
+<h2>Histórico</h2>
+
+<ul>
+    {% for curso in cursos_historico %}
+    <li>
+        <img src="{{ curso.image.url }}" alt="{{ curso.nome }}" width="150" height="100">
+        <a href="{% url 'detalhes' curso.idCurso %}">{{ curso.nome }}</a>
+    </li>
+    {% empty %}
+    <li>Você ainda não visualizou nenhum curso.</li>
     {% endfor %}
 </ul>
 {% endblock content %}
