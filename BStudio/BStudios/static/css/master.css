@@ -136,6 +136,7 @@ footer {
     max-width: 1200px;
     margin: auto;
     padding-bottom: 20px;
+    margin-top: 10%;
 
 }
 
@@ -152,11 +153,11 @@ footer {
 .footer-contacts h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    margin-right: 75%;
+    margin-right: 82%;
 }
 
 .footer-contacts p {
-    font-size: 1rem;
+    font-size: 14px;
     margin: 5px 0;
     display: flex;
     align-items: center;
@@ -170,10 +171,6 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-<<<<<<< HEAD
-    background-color: #420c1d;
-=======
->>>>>>> 2e036bf48302b99cdb39bd16ae69abd73f8d5cf4
 }
 
 .footer-socials h2 {
@@ -192,11 +189,7 @@ footer {
     align-items: center;
     width: 40px;
     height: 40px;
-<<<<<<< HEAD
-    background-color:white;
-=======
     background-color: white;
->>>>>>> 2e036bf48302b99cdb39bd16ae69abd73f8d5cf4
     border-radius: 50%;
     color: #333;
     font-size: 1.2rem;

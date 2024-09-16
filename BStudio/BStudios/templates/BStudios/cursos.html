@@ -2,26 +2,36 @@
 {% load static %} 
 
 {% block content %}
+
+{% if request.user.is_superuser %}
+    <a class="add-curso-btn" href="{% url 'cursosadd' %}">Adicionar nova categoria</a>
+{% endif %}
+
 <link rel="stylesheet" href="{% static 'css/cursos.css' %}">
-    <ul>
-        {% for cacurso in cacursos %}
-            <li>
-                <a href="{% url 'curso' cacurso.idCaCursos %}">{{ cacurso }}</a>
-                {% if cacurso.image %}
-                    <img src="{{ cacurso.image.url }}" alt="{{ cacurso.nome }}" style="max-width: 200px; height: auto;">
-                {% else %}
-                    <p>Sem imagem disponível</p>
-                {% endif %}
-                {% if request.user.is_superuser %}
-                <p><a href="{% url 'edit_cursos' cacurso.idCaCursos %}">Editar categoria</a></p>
-                <p><a href="{% url 'excluir_cursos' cacurso.idCaCursos %}">Excluir categoria</a></p>
-                {% endif %}
-            </li>
-        {% empty %}
-            <li>Não há cursos adicionados.</li>
-        {% endfor %}
-    </ul>
-    {% if request.user.is_superuser %}
-    <a href="{% url 'cursosadd' %}">Adicionar nova categoria</a>
-    {% endif %}
+
+<h1>CONFIRA NOSSOS CURSOS</h1>
+<div class="cursos-container">
+    {% for cacurso in cacursos %}
+    <div class="curso-card">
+        <a href="{% url 'curso' cacurso.idCaCursos %}">{{ cacurso }}</a>
+        {% if cacurso.image %}
+            <img src="{{ cacurso.image.url }}" width="100%" height="90px" alt="{{ cacurso.nome }}">
+            <p>Aprenda técnicas de microagulhamento e ofereça tratamentos que renovam e rejuvenescem a pele!</p>
+        {% else %}
+            <p>Sem imagem disponível</p>
+        {% endif %}
+        {% if request.user.is_superuser %}
+        <div class="admin-actions">
+            <a href="{% url 'edit_cursos' cacurso.idCaCursos %}" class="btn-editar">Editar categoria</a>
+            <a href="{% url 'excluir_cursos' cacurso.idCaCursos %}" class="btn-excluir">Excluir categoria</a>
+        </div>
+        {% endif %}
+    </div>
+    {% empty %}
+        <p>Não há cursos adicionados.</p>
+    {% endfor %}
+</div>
+
+
+
 {% endblock content%}

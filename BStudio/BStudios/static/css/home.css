@@ -150,45 +150,22 @@ main {
     max-width: 1200px;
     padding: 0 20px; 
     position: relative; 
-    animation: slideUp 9s ease forwards; 
+    animation: slideUp 7s ease forwards; 
 }
 
-.box1, .box2, .box3, .box4 {
+.box1{
     background-color: #f3f4f6; 
     padding: 20px; 
     border-radius: 8px;
     transition: background-color 0.3s ease;
     position: relative; 
 }
-
-.box1::before,
-.box2::before, 
-.box3::before,
-.box4::before{
-    content: '';
-    position: absolute;
-    bottom: -5px; 
-    border-radius: 2px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background-color: var(--vinho); 
-    transition: bottom 0.3s ease;
-}
-
-.box1:hover::before,
-.box2:hover::before, 
-.box3:hover::before,
-.box4:hover::before{
-    bottom: 0; 
-}
-
-.box1:hover, .box2:hover, .box3:hover, .box4:hover{
-    background-color: #d499a9; 
+.box1:hover{
+    background-color: #d5bac1; 
     
 }
 
-.box1 img, .box2 img, .box3 img, .box4 img {
+.box1 img {
     width: 100%;
     height: 200px; 
     object-fit: cover; 
@@ -197,31 +174,48 @@ main {
     transition: transform 0.3s ease;
 }
 
-.box1 img:hover,
-.box2 img:hover, 
-.box3 img:hover,
-.box4 img:hover{
+.box1 img:hover{
     transform: scale(1.05);
 }
 
-.int_box1, .int_box2, .int_box3, .int_box4 {
+.int_box1 {
     margin-top: 10px; 
-    font-size: 15px;
+    font-size: 14px;
+}
+.btn-saiba-mais {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--marromleve);
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.tt_box1, .tt_box2, .tt_box3, .tt_box4 {
+.btn-saiba-mais:hover {
+    background-color: var(--vinho); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+
+.tt_box1 {
     font-size: 1.1rem; 
     font-weight: bold; 
     color: black; 
-    margin-bottom: 15px; 
+    margin-bottom: 10px; 
 }
+
+
 /*seção 04 - feedbackkkk*/
 
 
 .feedback-container {
     max-width: 1200px;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
     padding: 40px;
     color: white;
     animation: slideUp 16s ease forwards;     
