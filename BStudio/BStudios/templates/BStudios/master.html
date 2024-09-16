@@ -50,11 +50,14 @@
                         Entrar
                     </a>
                 </li>
-                {% endif %}
-                {% if show_welcome %}
-                <li>Seja bem-vindo, {{ username }}!</li>
-                {% endif %}
             </ul>
+        </div>
+        <div class="boa">
+            {% endif %}
+            {% if show_welcome %}
+            <div class="boa"></div>
+            <li>Seja bem-vindo, {{ username }}!</li>
+            {% endif %}
         </div>
     {% block content %}
 
