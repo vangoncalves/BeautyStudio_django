@@ -57,6 +57,7 @@ def areacadastroadmin(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             user.is_superuser = True
+            user.is_staff = True
             user.save()
             return redirect('arealogin') 
         else:
