@@ -3,7 +3,10 @@
 
 {% block content %}
 
-
+<h2>Cadastro</h2>
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
     <form action="{% url 'areacadastro' %}" method="post">
         {% csrf_token %}
         {{form.as_p}}

@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     """Página principal do Beauty Studio"""
 
-    #Verifica se a mensagem de boas-vindas deve ser exibida
+    #Verifica se a mensagem deve ser exibida
     show_welcome = request.session.pop('show_welcome', False)
     username = request.session.get('username', 'Usuario')
 
@@ -152,7 +152,7 @@ def comprar_pedido(request, idCurso):
     """Metodo para comprar cursos"""
     curso = Curso.objects.get(idCurso=idCurso)
 
-    # Verificar se o usuário já comprou o curso
+    # Verifica se o usuário já comprou o curso
     if Pedido.objects.filter(fk_idUsuario=request.user, fk_idCurso=curso).exists():
         return render(request, 'BStudios/ja_comprou.html', {'curso': curso})
 

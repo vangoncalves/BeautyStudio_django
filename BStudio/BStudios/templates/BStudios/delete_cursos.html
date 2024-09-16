@@ -1,13 +1,7 @@
 {% extends "BStudios/master.html" %}
 
 {% block content %}
-<br><br><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <h2>Tem certeza que deseja deletar a categoria "{{ cursos.nome }}"?</h2>
 <form method="post">
     {% csrf_token %}

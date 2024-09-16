@@ -17,8 +17,8 @@ def arealogin(request):
         if user is not None:
             login(request, user)
             if not request.session.get('show_welcome', False):
-                request.session['show_welcome'] = True  # Define para mostrar a mensagem
-                request.session['username'] = user.username  # Salva o nome do usuário na sessão
+                request.session['show_welcome'] = True  # Define para mostrar a mensagem junto com o username do usuario
+                request.session['username'] = user.username  # Salva o username do usuario na sessão
             return redirect('index')  #colocar a pagina que o user vai após login
         else:
              context = {'error': 'Credenciais inválidas'}
@@ -34,10 +34,13 @@ def areacadastro(request):
             user.set_password(form.cleaned_data['password'])
             user.save() 
             messages.success(request, f'Bem-vindo, {user.username}! Seu cadastro foi realizado com sucesso.')
-            return redirect('arealogin')  # Redireciona para a página de login
+            return redirect('arealogin')
+        else:
+            context = {'form': form, 'error': 'Credenciais inválidas'}
     else:
         form = UsuarioRegistrationForm()
         context = {'form': form}
+        
     return render(request, 'users/areacadastro.html', context )
 
 
@@ -53,11 +56,13 @@ def areacadastroadmin(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
-            user.is_staff = True  # Marca como superusuário ou staff
             user.is_superuser = True
             user.save()
-            return redirect('arealogin')  # Redireciona para a área de login ou qualquer outra página
+            return redirect('arealogin') 
+        else:
+            context = {'form': form, 'error': 'Credenciais inválidas'}
     else:
         form = SuperUserCreationForm()
-    context = {'form': form}
+        context = {'form': form}
+
     return render(request, 'users/areacadastroadmin.html', context)

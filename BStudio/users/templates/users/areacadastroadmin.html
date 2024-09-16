@@ -3,6 +3,9 @@
 {% block content %}
 
 <h2>Cadastrar Superusuário</h2>
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
 <form action="{% url 'areacadastroadmin' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
