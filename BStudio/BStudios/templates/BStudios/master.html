@@ -19,7 +19,7 @@
             <ul class="logo">
                 <li>
                     <a href="{% url 'index' %}">
-                        <img src="{% static 'img/logoc.png' %}" height="70" width="58" alt="Logo do Site beauty Studio">
+                        <img src="{% static 'img/logoc.png' %}" height="70" width="60" alt="Logo do Site beauty Studio">
                     </a>
                 </li>
             </ul>
@@ -50,11 +50,14 @@
                         Entrar
                     </a>
                 </li>
-                {% endif %}
-                {% if show_welcome %}
-                <li>Seja bem-vindo, {{ username }}!</li>
-                {% endif %}
             </ul>
+        </div>
+        <div class="boa">
+            {% endif %}
+            {% if show_welcome %}
+            <div class="boa"></div>
+            <li>Seja bem-vindo, {{ username }}!</li>
+            {% endif %}
         </div>
     {% block content %}
 
@@ -67,9 +70,9 @@
             </div>
             <div class="footer-contacts">
                 <h2>Contatos</h2>
-                <p><i class="fas fa-phone"></i> +55 84 981456 7890</p>
-                <p><i class="fas fa-envelope"></i> contato@beatycursos.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Rua Exemple, 123, Canguaretama - RN</p>
+                <p><i class="fas fa-phone"></i> +55 (84) 981456-7890</p>
+                <p><i class="fas fa-envelope"></i> contato@beautycursos.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Exemple, 123, Canguaretama - RN</p>    
             </div>
             <div class="footer-socials">
                 <h2>Siga-nos</h2>
