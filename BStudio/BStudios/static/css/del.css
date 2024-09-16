@@ -1,0 +1,60 @@
+:root {
+    --vinhoprinci: #420c1d;
+    --vinho: #6f233f;
+    --vinhoclaro: #a0445d;
+    --marromleve: #cb5c64;
+    --vinhobb: #e490ba;
+    --vinhclaro: #eaa59f;
+    --brancovinho: #f4dadb;
+    --corhover: #eaa59f5b;
+    --fontwhite: #ececec;
+}
+
+h2 {
+    width: 80%;
+    background-color: var(--vinhoprinci);
+    color: var(--vinhclaro);
+    padding: 20px;
+    margin: 5% auto;
+    text-align: center;
+    border-radius: 8px;
+}
+
+form {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--vinhoclaro);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+button {
+    background-color: var(--vinho);
+    border: none;
+    padding: 12px 20px;
+    color: var(--brancovinho);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--marromleve);
+}
+
+a {
+    display: inline-block;
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--vinho);
+    font-size: 16px;
+    color: #ececec;
+}
+
+a:hover {
+    color: var(--marromleve);
+}
