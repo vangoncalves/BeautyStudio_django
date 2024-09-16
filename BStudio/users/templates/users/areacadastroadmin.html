@@ -2,7 +2,20 @@
 {% load static %} 
 {% block content %}
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="{% static 'css/superuser.css' %}">
+=======
+<h2>Cadastrar Superusuário</h2>
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+<form action="{% url 'areacadastroadmin' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Cadastrar Superusuário</button>
+    <input type="hidden" name="next" value="{% url 'index' %}"/>
+</form>
+>>>>>>> 932d0c86be58632a96ff9d865e606ea3a2f099fb
 
 <div class="cadastro-container2">
     <div class="cad-imguser">

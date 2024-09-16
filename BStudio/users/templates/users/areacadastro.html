@@ -3,6 +3,7 @@
 {% load static %} 
 {% block content %}
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="{% static 'css/areacadastro.css' %}">
 
 <div class="cadastro-container">
@@ -23,6 +24,19 @@
 <!-- Deixa vazio para não exibir o rodapé -->
 {% endblock footer %}
     
+=======
+<h2>Cadastro</h2>
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+    <form action="{% url 'areacadastro' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        
+        <button name="submit">Cadastrar</button>
+        <input type="hidden" name="next" value="{% url 'index' %}"/>
+    </form>
+>>>>>>> 932d0c86be58632a96ff9d865e606ea3a2f099fb
 
 {% endblock content %}
 
