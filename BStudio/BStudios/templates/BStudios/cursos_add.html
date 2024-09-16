@@ -1,15 +1,20 @@
-{% extends "BStudios/master.html" %}
+{% extends "BStudios/master.html" %} 
+
+{% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cadd.css' %}">
 
-
-<p>Adicione uma nova Categoria:</p>
+<p class="title">Adicione uma nova Categoria:</p>
 
 <form action="{% url 'cursosadd' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <p>Nome:<input type="text" name="nome" placeholder="Digite seu nome" required></p>
-    <p>Imagem: <input type="file" name="image" placeholder="Adicione uma imagem" required></p>
+    <p class=" tit">Nome:</p>
+    <input type="text" name="nome" placeholder="Digite seu nome" required>
+    <p class="tit">Imagem </p>
+    <input type="file" name="image" placeholder="Adicione uma imagem" required>
     <button type="submit">Adicionar</button>
 </form>
+
 
 {% endblock content %}
