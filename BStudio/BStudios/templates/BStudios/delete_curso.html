@@ -8,5 +8,8 @@
     <button type="submit">Deletar</button>
     <a href="{% url 'curso' cursos.fk_idCaCursos.idCaCursos %}">Cancelar</a>
 </form>
-
+{% block footer %}
+<!-- Deixa vazio para não exibir o rodapé -->
+{% endblock footer %}
 {% endblock content %}
+
