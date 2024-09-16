@@ -3,13 +3,12 @@
 {% block content %}
 
 
-
-
 <p>Adicione uma nova Categoria:</p>
 
 <form action="{% url 'cursosadd' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    <p>Nome:<input type="text" name="nome" placeholder="Digite seu nome" required></p>
+    <p>Imagem: <input type="file" name="image" placeholder="Adicione uma imagem" required></p>
     <button type="submit">Adicionar</button>
 </form>
 
