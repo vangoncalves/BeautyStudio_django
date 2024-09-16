@@ -1,0 +1,84 @@
+/* Estilo da página de Cadastro*/
+:root {
+    --vinhoprinci: #420c1d;
+    --vinho: #6f233f;
+    --vinhoclaro: #a0445d;
+    --marromleve: #cb5c64;
+    --vinhobb: #e490ba;
+    --vinhclaro: #eaa59f;
+    --brancovinho: #f4dadb;
+    --corhover: #eaa59f5b;
+    --fontwhite: #ececec;
+}
+
+body {
+    background-color: var(--vinhoprinci);
+}
+
+.cadastro-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    margin-top: 5%;
+    max-width: 1250px;
+    padding: 20px;
+    gap: 80px;
+    background-color: var(--vinho); 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.cadastro-form {
+    width: 50%;
+    padding: 20px 40px;
+    background-color: var(--vinhoclaro);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+}
+.cadastro-form h1{
+    margin: 15px;
+    margin-top: -8rem;
+    font-weight: bold;
+    color: #f4dadb;
+}
+
+.cad-img {
+    width: 40%; 
+    text-align: center;
+}
+
+
+.cad-img img {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 30px 0px 30px 0px;
+}
+
+form {
+    width: 100%; 
+}
+
+button {
+    margin-top: 20px;
+    background-color: var(--vinho);
+    border: none;
+    padding: 12px 35px;
+    color: #f4dadb;
+    font-size: 16px;
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--marromleve);
+}

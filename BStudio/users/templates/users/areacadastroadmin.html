@@ -1,13 +1,24 @@
 {% extends "BStudios/master.html" %}
-
+{% load static %} 
 {% block content %}
 
-<h2>Cadastrar Superusuário</h2>
-<form action="{% url 'areacadastroadmin' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Cadastrar Superusuário</button>
-    <input type="hidden" name="next" value="{% url 'index' %}"/>
-</form>
+<link rel="stylesheet" href="{% static 'css/superuser.css' %}">
 
+<div class="cadastro-container2">
+    <div class="cad-imguser">
+        <img src="{% static 'img/gel.png' %}" width="100%" height="110px"   alt="Imagem lateral de uma mulher passando máscara facial">
+    </div>
+    <div class="cadastro-form2">
+        <h1>CADASTRAR SUPERUSER</h1>
+        <form action="{% url 'areacadastroadmin' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Cadastrar</button>
+            <input type="hidden" name="next" value="{% url 'index' %}"/>
+        </form>
+    </div>
+</div>
+{% block footer %}
+<!-- Deixa vazio para não exibir o rodapé -->
+{% endblock footer %}
 {% endblock content %}

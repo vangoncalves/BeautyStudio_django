@@ -1,16 +1,28 @@
 
 {% extends "BStudios/master.html" %}
-
+{% load static %} 
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'css/areacadastro.css' %}">
 
-    <form action="{% url 'areacadastro' %}" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        
-        <button name="submit">Cadastrar</button>
-        <input type="hidden" name="next" value="{% url 'index' %}"/>
-    </form>
+<div class="cadastro-container">
+    <div class="cad-img">
+        <img src="{% static 'img/masc.png' %}" width="85%" hei   alt="Imagem lateral de uma mulher passando máscara facial">
+    </div>
+    <div class="cadastro-form">
+        <h1>CADASTRE-SE</h1>
+        <form action="{% url 'areacadastro' %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button name="submit">Cadastrar</button>
+            <input type="hidden" name="next" value="{% url 'index' %}"/>
+        </form>
+    </div>
+</div>
+{% block footer %}
+<!-- Deixa vazio para não exibir o rodapé -->
+{% endblock footer %}
+    
 
 {% endblock content %}
 

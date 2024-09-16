@@ -1,0 +1,19 @@
+/* Estilo da página de Cursos*/
+:root {
+    --vinhoprinci: #420c1d;
+    --vinho: #6f233f;
+    --vinhoclaro: #a0445d;
+    --marromleve: #cb5c64;
+    --vinhobb: #e490ba;
+    --vinhclaro: #eaa59f;
+    --brancovinho: #f4dadb;
+    --corhover: #eaa59f5b;
+    --fontwhite: #ececec;
+}
+
+/* Fundo para toda a página *
+body {
+    background-color: var(--vinhoprinci);
+}
+
+-> planejar o estilo para implementar
