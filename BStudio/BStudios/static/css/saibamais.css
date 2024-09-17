@@ -1,0 +1,111 @@
+/* estilo da pagina curso_detalhes (saiba mais - card principal) */
+
+
+:root {
+    --vinhoprinci: #420c1d;
+    --vinho: #6f233f;
+    --vinhoclaro: #a0445d;
+    --marromleve: #cb5c64;
+    --vinhobb: #e490ba;
+    --vinhclaro: #eaa59f;
+    --brancovinho: #f4dadb;
+    --corhover: #eaa59f5b;
+    --fontwhite: #ececec;
+    --preto: #333;
+    --cinza: #777;
+    --branco: #fff;
+}
+
+
+.curso-detalhes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+    list-style-type: none;
+    margin-top: 2%;
+    margin-bottom: 30px;
+}
+
+
+.curso-item {
+    background-color: var(--brancovinho);
+    border-radius: 8px;
+    padding: 20px;
+    width: 310px; 
+    margin: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.curso-item:hover {
+    transform: translateY(-10px);
+}
+
+
+.curso-nome {
+    font-size: 22px;
+    color: var(--vinhoprinci);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+
+.curso-imagem {
+    width: 100%;
+    height: 160px; 
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+
+.curso-info p {
+    font-size: 14px;
+    color: var(--preto);
+    margin-bottom: 5px;
+}
+
+
+.curso-descricao {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    color: var(--vinhoprinci);
+    margin-bottom: 20px;
+    text-align: justify;
+    text-indent: 20px; 
+}
+
+
+.curso-valor {
+    font-size: 16px;
+    color: var(--vinhoclaro);
+    font-weight: bold;
+}
+
+
+.curso-editar, .curso-excluir, .curso-comprar {
+    display: inline-block;
+    margin: 10px 5px 0;
+    padding: 8px 15px;
+    background-color: var(--vinho);
+    color: var(--fontwhite);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.curso-editar:hover, .curso-excluir:hover, .curso-comprar:hover {
+    background-color: var(--vinhoclaro);
+}
+
+@media (max-width: 768px) {
+    .curso-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

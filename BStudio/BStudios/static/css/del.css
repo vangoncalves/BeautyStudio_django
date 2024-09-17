@@ -10,36 +10,47 @@
     --fontwhite: #ececec;
 }
 
+body{
+    background-color: var(--brancovinho);
+}
+
 h2 {
     width: 80%;
     background-color: var(--vinhoprinci);
-    color: var(--vinhclaro);
+    color: white;
     padding: 20px;
     margin: 5% auto;
+    margin-top: 10%;
     text-align: center;
     border-radius: 8px;
+    z-index: 2;
 }
 
 form {
     width: 80%;
     max-width: 600px;
     margin: 20px auto;
+    margin-top: -3%;
     padding: 20px;
     background-color: var(--vinhoclaro);
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
+    z-index: 2;
 }
+
 
 button {
     background-color: var(--vinho);
     border: none;
     padding: 12px 20px;
-    color: var(--brancovinho);
+    color: white;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    z-index: 2;
+
 }
 
 button:hover {
@@ -50,11 +61,16 @@ a {
     display: inline-block;
     margin-left: 20px;
     text-decoration: none;
-    color: var(--vinho);
     font-size: 16px;
-    color: #ececec;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    
 }
-
+.cancel{
+    background-color: var(--vinho);
+}
 a:hover {
-    color: var(--marromleve);
+    background-color: var(--marromleve);
 }

@@ -216,9 +216,10 @@ main {
     max-width: 1200px;
     margin: auto;
     margin-top: 10%;
+    margin-bottom: 80px;
     padding: 40px;
     color: white;
-    animation: slideUp 16s ease forwards;     
+    animation: slideUp 10s ease forwards;     
 
 }
 

@@ -1,6 +1,7 @@
 {% extends "BStudios/master.html" %}
 {% load static %}
 {% block content %}
+
 <link rel="stylesheet" href="{% static 'css/cursos.css' %}">
 {% if request.user.is_superuser %}
         <a class="add-curso-btn" href="{% url 'cursoadd' curso.idCaCursos%}">Adicionar novo curso</a>

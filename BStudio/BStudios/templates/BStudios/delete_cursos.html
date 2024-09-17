@@ -4,11 +4,13 @@
 
 <link rel="stylesheet" href="{% static 'css/del.css' %}">
 
+
+
 <h2>Tem certeza que deseja deletar a categoria "{{ cursos.nome }}"?</h2>
 <form method="post">
     {% csrf_token %}
     <button type="submit">Deletar</button>
-    <a href="{% url 'cursos' %}">Cancelar</a>
+    <a class="cancel" href="{% url 'cursos' %}">Cancelar</a>
 </form>
 {% block footer %}
 <!-- Deixa vazio para não exibir o rodapé -->

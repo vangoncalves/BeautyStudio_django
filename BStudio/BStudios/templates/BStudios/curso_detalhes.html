@@ -1,31 +1,36 @@
 {% extends "BStudios/master.html" %}
-
+{%load static%}
 {% block content %}
 
-    <h3>{{ detalhe.nome }}</h3>
-    <ul>
-        <li>
-            <img src="{{ detalhe.image.url }}" alt="{{ detalhe.nome }}">
-            <p>{{ detalhe.descricao }}</p>
-            <p>Início: {{ detalhe.dataInicio }}</p>
-            <p>Fim: {{ detalhe.dataFim }}</p>
-            <p>Horario inicial: {{ detalhe.hora_inicio }}</p>
-            <p>Horario final: {{ detalhe.hora_final }}</p>
-            <p>Dias: {{ detalhe.dias }}</p>
-            <p>Valor: {{ detalhe.valor_cur }}</p>
-            <p>Profissionais: {{ detalhe.fk_idFuncionario }}</p>
+<link rel="stylesheet" href="{% static 'css/saibamais.css' %}">
+
+
+<div class="curso-detalhes">
+    <div class="curso-item">
+        <h3 class="curso-nome">{{ detalhe.nome }}</h3>
+        <img class="curso-imagem" src="{{ detalhe.image.url }}" alt="{{ detalhe.nome }}">
+        <div class="curso-info">
+            <p class="curso-descricao">{{ detalhe.descricao }}</p>
+            <p class="curso-data">Início: {{ detalhe.dataInicio }}</p>
+            <p class="curso-data">Fim: {{ detalhe.dataFim }}</p>
+            <p class="curso-horario">Horário: {{ detalhe.hora_inicio }} - {{ detalhe.hora_final }}</p>
+            <p class="curso-dias">Dias: {{ detalhe.dias }}</p>
+            <p class="curso-valor">Valor: R$ {{ detalhe.valor_cur }}</p>
+            <p class="curso-profissionais">Profissionais: {{ detalhe.fk_idFuncionario }}</p>
 
             {% if request.user.is_superuser %}
-            <p><a href="{% url 'edit_curso' detalhe.idCurso %}">Editar curso</a></p>
-            <p><a href="{% url 'excluir_curso' detalhe.idCurso %}">Excluir curso</a></p>
+            <a class="curso-editar" href="{% url 'edit_curso' detalhe.idCurso %}">Editar</a>
+            <a class="curso-excluir" href="{% url 'excluir_curso' detalhe.idCurso %}">Excluir</a>
             {% else %}
             {% if user.is_authenticated %}
-                <a href="{% url 'comprar_curso' detalhe.idCurso %}">Comprar</a>
+                <a class="curso-comprar" href="{% url 'comprar_curso' detalhe.idCurso %}">Comprar</a>
             {% else %}
-                <a href="{% url 'arealogin' %}">Comprar</a>
+                <a class="curso-comprar" href="{% url 'arealogin' %}">Comprar</a>
             {% endif %}
             {% endif %}
-        </li>
-    </ul>
+        </div>
+    </div>
+</div>
+
     
 {% endblock content %}

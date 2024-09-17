@@ -124,7 +124,7 @@ header {
 footer {
     background-color: var(--vinhoprinci);
     color: white;
-    padding: 20px;
+    padding: 10px;
     width: 100%;
     position: relative;
     bottom: 0;
@@ -136,10 +136,8 @@ footer {
     max-width: 1200px;
     margin: auto;
     padding-bottom: 20px;
-    margin-top: 10%;
-
+    margin-top: 5%;
 }
-
 
 .footer-logo img {
     max-height: 120px;

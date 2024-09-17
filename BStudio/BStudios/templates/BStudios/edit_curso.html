@@ -1,45 +1,75 @@
-{% extends "Bstudios/master.html" %}
+{% extends "BStudios/master.html" %}
+{% load static %}
 
 {% block content %}
-
-<p><a href="{% url 'detalhes' edit.idCurso %}">{{ edit.nome }}</a></p>
-
-<p>Editar curso:</p>
-
-<form action="{% url 'edit_curso' edit.idCurso %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <p>Nome:<input type="text" name="nome" value="{{ edit.nome }}" placeholder="Digite nome do curso" required></p>
-    <p>Imagem: <input type="file" name="image" placeholder="Adicione uma imagem sobre o curso"></p>
-    <p>Descrição:<input type="text" name="descricao" value="{{ edit.descricao }}" placeholder="Digite uma descrição do curso" required></p>
-    <p>Início:<input type="date" name="dataInicio" value="{{ edit.dataInicio }}" required></p>
-    <p>Fim:<input type="date" name="dataFim" value="{{ edit.dataFim }}" required></p>
-    <p>De:<input type="time" name="hora_inicio" value="{{ edit.hora_inicio }}" required></p>
-    <p>Até:<input type="time" name="hora_final" value="{{ edit.hora_final }}" required></p>
-    <p>Dias:<input type="text" name="dias" value="{{ edit.dias }}" placeholder="Digite os dias de curso" required></p>
-    <p>Valor:<input type="number" step="0.01" name="valor_cur" value="{{ edit.valor_cur }}" placeholder="Digite o valor do curso" required></p>
-
-    <p>Categorias:
-        <select name="fk_idCaCursos" required>
-            <option value="" disabled>Selecione uma categoria</option>
-            {% for categoria in categorias %}
-            <option value="{{ categoria.idCaCursos }}">
-                {{ categoria.nome }}
-            </option>
-            {% endfor %}
-        </select>
-    </p>
-
-    <p>Funcionários:
-        <select name="fk_idFuncionario" required>
-            <option value="" disabled>Selecione um funcionário</option>
-            {% for funcionario in funcionarios %}
-            <option value="{{ funcionario.idFuncionario }}">
-                {{ funcionario.nome }}
-            </option>
-            {% endfor %}
-        </select>
-    </p>
-
-    <button name="submit">Salvar</button>
-</form>
+<link rel="stylesheet" href="{% static 'css/edit.css' %}">
+<div class="edit-curso-container">
+    <div class="edit-curso-img">
+        <img src="{% static 'img/beauty.png' %}" alt="Imagem lateral de uma mulher passando máscara facial">
+    </div>
+    <div class="edit-curso-form">
+        <h1>EDITANDO {{ edit.nome }}</h1>
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+        <form action="{% url 'edit_curso' edit.idCurso %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="{{ edit.nome }}" placeholder="Digite nome do curso" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Imagem:</label>
+                <input type="file" id="image" name="image" placeholder="Adicione uma imagem sobre o curso">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" value="{{ edit.descricao }}" placeholder="Digite uma descrição do curso" required>
+            </div>
+            <div class="form-group">
+                <label for="dataInicio">Início:</label>
+                <input type="date" id="dataInicio" name="dataInicio" value="{{ edit.dataInicio }}" required>
+            </div>
+            <div class="form-group">
+                <label for="dataFim">Fim:</label>
+                <input type="date" id="dataFim" name="dataFim" value="{{ edit.dataFim }}" required>
+            </div>
+            <div class="form-group">
+                <label for="hora_inicio">De:</label>
+                <input type="time" id="hora_inicio" name="hora_inicio" value="{{ edit.hora_inicio }}" required>
+            </div>
+            <div class="form-group">
+                <label for="hora_final">Até:</label>
+                <input type="time" id="hora_final" name="hora_final" value="{{ edit.hora_final }}" required>
+            </div>
+            <div class="form-group">
+                <label for="dias">Dias:</label>
+                <input type="text" id="dias" name="dias" value="{{ edit.dias }}" placeholder="Digite os dias de curso" required>
+            </div>
+            <div class="form-group">
+                <label for="valor_cur">Valor:</label>
+                <input type="number" step="0.01" id="valor_cur" name="valor_cur" value="{{ edit.valor_cur }}" placeholder="Digite o valor do curso" required>
+            </div>
+            <div class="form-group">
+                <label for="fk_idCaCursos">Categorias:</label>
+                <select id="fk_idCaCursos" name="fk_idCaCursos" required>
+                    <option value="" disabled>Selecione uma categoria</option>
+                    {% for categoria in categorias %}
+                    <option value="{{ categoria.idCaCursos }}">{{ categoria.nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fk_idFuncionario">Funcionários:</label>
+                <select id="fk_idFuncionario" name="fk_idFuncionario" required>
+                    <option value="" disabled>Selecione um funcionário</option>
+                    {% for funcionario in funcionarios %}
+                    <option value="{{ funcionario.idFuncionario }}">{{ funcionario.nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
 {% endblock content %}

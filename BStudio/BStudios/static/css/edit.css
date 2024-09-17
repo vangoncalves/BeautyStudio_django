@@ -1,0 +1,111 @@
+/*css de saiba mais - editar */
+
+:root {
+    --vinhoprinci: #420c1d;
+    --vinho: #6f233f;
+    --vinhoclaro: #a0445d;
+    --marromleve: #cb5c64;
+    --vinhobb: #e490ba;
+    --vinhclaro: #eaa59f;
+    --brancovinho: #f4dadb;
+    --corhover: #eaa59f5b;
+    --fontwhite: #ececec;
+}
+
+body {
+    background-color: var(--vinhoprinci);
+}
+
+.edit-curso-container {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px auto;
+    margin-top: 5%;
+    max-width: 1250px;
+    padding: 20px;
+    gap: 20px;
+    background-color: var(--vinho); 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.edit-curso-img {
+    width: 40%;
+}
+
+.edit-curso-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-top: 20%;
+    border-radius: 30px 0px 30px 0px;
+}
+
+.edit-curso-form {
+    width: 60%;
+    padding: 20px;
+    background-color: var(--vinhoclaro);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-curso-form h1 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--brancovinho);
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 3px;
+    text-align: left; 
+    color: var(--fontwhite);
+    font-weight: bold;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid var(--brancovinho);
+    background-color: transparent;
+    color: var(--brancovinho);
+    font-size: 16px;
+    outline: none;
+}
+
+.form-group input::placeholder, 
+.form-group select {
+    color: black;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-bottom: 2px solid var(--vinhclaro);
+}
+
+button {
+    margin-top: 20px;
+    background-color: var(--vinho);
+    border: none;
+    padding: 12px 35px;
+    color: var(--brancovinho);
+    font-size: 16px;
+    width: 50%;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: var(--marromleve);
+    color: var(--brancovinho);
+}
