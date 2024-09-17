@@ -13,9 +13,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Banco de dados local (SQLite)
-db.sqlite3
-db.sqlite3-journal
 
 # Arquivos de log
 *.log
