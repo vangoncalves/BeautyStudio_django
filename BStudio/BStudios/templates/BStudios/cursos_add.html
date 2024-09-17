@@ -9,7 +9,7 @@
 
 <form action="{% url 'cursosadd' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <p class=" tit">Nome:</p>
+    <p class="tit">Nome:</p>
     <input type="text" name="nome" placeholder="Digite o nome da Categoria" required>
     <p class="tit">Imagem </p>
     <input type="file" name="image" placeholder="Adicione uma imagem" required>
