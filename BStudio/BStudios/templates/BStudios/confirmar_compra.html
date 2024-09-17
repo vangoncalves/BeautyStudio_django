@@ -1,6 +1,8 @@
 {% extends "BStudios/master.html" %}
-
+{%load static %}
 {% block content %}
+
+<link rel="stylesheet" href="{% static 'css/compra.css' %}">
 
 <h2>Confirmar Compra</h2>
 <p>Curso: {{ curso.nome }}</p>

@@ -1,0 +1,109 @@
+
+:root {
+    --vinhoprinci: #420c1d;
+    --vinho: #6f233f;
+    --vinhoclaro: #a0445d;
+    --marromleve: #cb5c64;
+    --vinhobb: #e490ba;
+    --vinhclaro: #eaa59f;
+    --brancovinho: #f4dadb;
+    --corhover: #eaa59f5b;
+    --fontwhite: #ececec;
+}
+
+h2 {
+    color: #420c1d;
+}
+
+.profile-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    margin-top: 5%;
+}
+
+.user-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.section-title {
+    font-size: 24px;
+    margin: 30px 0 10px;
+}
+.purchases-list{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purchases-list, .history-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.purchases-list li, .history-item {
+    background-color: #e490ba;
+    width: 50%;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.purchases-list li {
+    font-size: 16px;
+}
+
+.history-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.course-image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.course-link {
+    color: #420c1d;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.course-link:hover {
+    color: #6f233f;
+}
+
+.course-status {
+    font-size: 14px;
+    color: #6f233f;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+
+@media (max-width: 768px) {
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .course-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+}
