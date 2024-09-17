@@ -122,25 +122,23 @@ def detalhes(request, idCurso):
     """Mostra detalhes de um unico curso de uma determinada categoria"""
     detalhe = Curso.objects.get(idCurso = idCurso)
 
-    # Verifica se a chave 'historico_cursos' já existe na sessão
+   
     if 'historico_cursos' not in request.session:
         request.session['historico_cursos'] = []
 
-    # Obtém o histórico da sessão
+  
     historico = request.session['historico_cursos']
 
-    # Adiciona o curso ao histórico, se ele ainda não estiver lá
     if detalhe.idCurso not in historico:
         historico.append(detalhe.idCurso)
 
-    # Limita o histórico a 10 cursos
+    
     if len(historico) > 10:
-        historico.pop(0)  # Remove o curso mais antigo
+        historico.pop(0)  
 
-    # Atualiza o histórico na sessão
     request.session['historico_cursos'] = historico
 
-    # Renderiza a página de detalhes do curso
+   
     context ={'detalhe':detalhe}
     return render(request, 'BStudios/curso_detalhes.html', context)
 
@@ -162,7 +160,7 @@ def perfil(request):
     """Perfil do usuario"""
     historico_ids = request.session.get('historico_cursos', [])
 
-    # Busca os cursos correspondentes aos IDs armazenados no histórico
+   
     cursos_historico = Curso.objects.filter(idCurso__in=historico_ids)
     
     user = request.user  # Obtém o usuário logado
