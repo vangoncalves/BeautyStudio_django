@@ -1,16 +1,32 @@
 {% extends "Bstudios/master.html" %}
 
+{%load static%}
+
+
 {% block content %}
 
-<p><a href="{% url 'cursos' %}">{{ edit.nome }}</a></p>
+<link rel="stylesheet" href="{% static 'css/editcur.css' %}">
 
-<p>Editar categoria:</p>
+<div class="edit-categoria-card">
+    <p><a href="{% url 'cursos' %}">Editando {{ edit.nome }}</a></p>
 
-<form action="{% url 'edit_cursos' edit.idCaCursos %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <p>Nome:<input type="text" name="nome" placeholder="Digite seu nome" required></p>
-    <p>Imagem: <input type="file" name="image" placeholder="Adicione uma imagem" required></p>
-    <button type="submit">Salvar</button>
-</form>
+  
+
+    <form action="{% url 'edit_cursos' edit.idCaCursos %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite o nome da categoria" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="image">Imagem:</label>
+            <input type="file" id="image" name="image" placeholder="Adicione uma imagem" required>
+        </div>
+        
+        <button type="submit">Salvar</button>
+    </form>
+</div>
 
 {% endblock content %}

@@ -1,0 +1,109 @@
+/*estilo de - Edit_Cursos*/
+/* Definindo a palheta de cores */
+:root {
+    --vinhoprinci: #420c1d;
+    --vinho: #6f233f;
+    --vinhoclaro: #a0445d;
+    --marromleve: #cb5c64;
+    --vinhobb: #e490ba;
+    --vinhclaro: #eaa59f;
+    --brancovinho: #f4dadb;
+    --corhover: #eaa59f5b;
+    --fontwhite: #ececec;
+}
+
+
+
+body {
+    background-color: var(--vinhoprinci);
+    color: var(--fontwhite);
+    margin: 0;
+    padding: 0;
+}
+
+
+.edit-categoria-card {
+    max-width: 500px;
+    height: 350px;
+    margin: 20px auto;
+    padding: 20px 40px;
+    background-color: var(--vinho);
+    border-radius: 8px;
+    margin-top: 4%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.edit-categoria-card a {
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 30px;
+}
+
+.edit-categoria-card p {
+   margin-bottom: 20px;
+    padding: 10px;
+}
+
+
+.edit-categoria-card a:hover {
+    color: var(--marromleve);
+}
+
+.edit-categoria-card h1 {
+    margin: 10px 0;
+    font-weight: bold;
+    color: var(--brancovinho);
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--fontwhite);
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid var(--brancovinho);
+    background-color: transparent;
+    color: var(--brancovinho);
+    font-size: 16px;
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: var(--brancovinho);
+    opacity: 0.7;
+}
+
+.form-group input:focus {
+    border-bottom: 2px solid var(--vinhclaro);
+}
+
+button {
+    background-color: var(--corhover);
+    width: 40%;
+    border: none;
+    padding: 12px 30px;
+    color: var(--brancovinho);
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    align-self: flex-start;
+}
+
+button:hover {
+    background-color: var(--marromleve);
+    color: var(--brancovinho);
+}
