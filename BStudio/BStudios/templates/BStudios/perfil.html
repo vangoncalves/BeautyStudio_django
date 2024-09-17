@@ -1,21 +1,26 @@
 {% extends "BStudios/master.html" %}
 
+{%load static %}
 {% block content %}
 
-<h2>Perfil do Usuário</h2>
-<p>Olá, {{user.username}}</p>
-<p><strong>Nome:</strong> {{ user.nome }}</p>
-<p><strong>Telefone:</strong> {{ user.telefone }}</p>
-<p><strong>E-mail:</strong> {{ user.email }}</p>
-<p><strong>Usuário:</strong> {{ user.username }}</p>
+<link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+
+<h2 class="profile-title">Perfil do Usuário</h2>
+<div class="user-info">
+    <p>Olá, {{user.username}}</p>
+    <p><strong>Nome:</strong> {{ user.nome }}</p>
+    <p><strong>Telefone:</strong> {{ user.telefone }}</p>
+    <p><strong>E-mail:</strong> {{ user.email }}</p>
+    <p><strong>Usuário:</strong> {{ user.username }}</p>
+</div>
 
 {% if request.user.is_superuser %}
-<h2>Compras</h2>
+<h2 class="section-title">Compras</h2>
 {% else %}
-<h2>Minhas Compras</h2>
+<h2 class="section-title">Minhas Compras</h2>
 {% endif %}
 
-<ul>
+<ul class="purchases-list">
     {% for pedido in pedido %}
         {% if request.user.is_superuser %}
         <li>{{ pedido.fk_idCurso.nome }} - Comprado em {{ pedido.data }} por {{pedido.fk_idUsuario.nome}}</li>  
@@ -31,16 +36,20 @@
     {% endfor %}
 </ul>
 
-<h2>Histórico</h2>
-
-<ul>
+<h2 class="section-title">Histórico</h2>
+<ul class="history-list">
     {% for curso in cursos_historico %}
-    <li>
-        <img src="{{ curso.image.url }}" alt="{{ curso.nome }}" width="150" height="100">
-        <a href="{% url 'detalhes' curso.idCurso %}">{{ curso.nome }}</a>
+    <li class="history-item">
+        <img src="{{ curso.image.url }}" alt="{{ curso.nome }}" class="course-image">
+        <div class="course-info">
+            <a href="{% url 'detalhes' curso.idCurso %}" class="course-link">{{ curso.nome }}</a>
+            <p class="course-status">Situação: {{ curso.situacao }}</p> <!-- Exibe a situação do curso -->
+        </div>
     </li>
     {% empty %}
     <li>Você ainda não visualizou nenhum curso.</li>
     {% endfor %}
 </ul>
+
+
 {% endblock content %}
